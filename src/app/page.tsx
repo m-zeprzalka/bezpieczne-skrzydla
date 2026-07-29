@@ -1,65 +1,129 @@
-import Image from "next/image";
+import { Bricolage_Grotesque, Geist } from "next/font/google";
+
+import { ContactB } from "@/components/page-b/contact-b";
+import { FaqB } from "@/components/page-b/faq-b";
+import { FooterB } from "@/components/page-b/footer-b";
+import { HeaderB } from "@/components/page-b/header-b";
+import { HeroB } from "@/components/page-b/hero-b";
+import { MissionB } from "@/components/page-b/mission-b";
+import { ModelMap } from "@/components/page-b/model-map";
+import { OfferB } from "@/components/page-b/offer-b";
+import { PricingB } from "@/components/page-b/pricing-b";
+import { SelfCheck } from "@/components/page-b/self-check";
+import { TimelineB } from "@/components/page-b/timeline-b";
+import { VariantSwitch } from "@/components/page-b/variant-switch";
+import { faq, pricing, programs, site } from "@/lib/content";
+
+/**
+ * Strona główna prezentuje koncepcję B — decyzją z przeglądu wariantów.
+ * Fonty wariantu ładują się tutaj (wcześniej w layoucie trasy /page-b),
+ * więc pozostałe trasy nadal ich nie pobierają.
+ */
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
+  subsets: ["latin", "latin-ext"],
+  axes: ["opsz", "wdth"],
+  display: "swap",
+});
+
+const geist = Geist({
+  variable: "--font-geist-b",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+/** Dane strukturalne — Google pokazuje dzięki nim rozwijane FAQ i dane firmy. */
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${site.url}/#organizacja`,
+      name: site.name,
+      founder: { "@type": "Person", name: site.owner },
+      description:
+        "Szkolenia, warsztaty i praktyczne narzędzia z zakresu przeciwdziałania mobbingowi, dyskryminacji i przemocy psychicznej w środowisku pracy.",
+      url: site.url,
+      telephone: site.phoneHref,
+      email: site.email,
+      areaServed: { "@type": "Country", name: "Polska" },
+      sameAs: Object.values(site.socials),
+      knowsAbout: [
+        "mobbing w miejscu pracy",
+        "procedura antymobbingowa",
+        "komisja antymobbingowa",
+        "przemoc psychiczna w pracy",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Szkolenia i warsztaty",
+        itemListElement: programs.map((program) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Course",
+            name: program.title,
+            description: program.summary,
+            provider: { "@type": "Organization", name: site.name },
+          },
+        })),
+      },
+      makesOffer: pricing.map((plan) => ({
+        "@type": "Offer",
+        name: plan.name,
+        description: plan.description,
+        priceCurrency: "PLN",
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "PLN",
+          minPrice: Number(plan.price.replace(/\D/g, "")),
+        },
+      })),
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${site.url}/#faq`,
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div
+      className={`${bricolage.variable} ${geist.variable} theme-b font-body-b bg-background flex min-h-full flex-1 flex-col`}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      <a
+        href="#tresc"
+        className="bg-brand-950 focus:ring-brand-300 sr-only rounded-md px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:ring-3"
+      >
+        Przejdź do treści
+      </a>
+
+      <HeaderB />
+
+      <main id="tresc" className="flex-1">
+        <HeroB />
+        <SelfCheck />
+        <ModelMap />
+        <TimelineB />
+        <OfferB />
+        <PricingB />
+        <MissionB />
+        <FaqB />
+        <ContactB />
       </main>
+
+      <FooterB />
+      <VariantSwitch active="b" />
     </div>
   );
 }
