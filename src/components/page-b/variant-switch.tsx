@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-type Variant = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h";
+type Variant = "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "mvp" | "mvp-b";
 
 const VARIANTS: { id: Variant; href: string; title: string }[] = [
   { id: "a", href: "/page-b", title: "Koncepcja A — broszura premium" },
@@ -17,6 +17,16 @@ const VARIANTS: { id: Variant; href: string; title: string }[] = [
   { id: "f", href: "/page-f", title: "Koncepcja F — wersja finalna" },
   { id: "g", href: "/page-g", title: "Koncepcja G — wersja ostateczna" },
   { id: "h", href: "/page-h", title: "Koncepcja H — strona-plakat" },
+  {
+    id: "mvp",
+    href: "/page-mvp",
+    title: "Wersja MVP — G + C + F według uwag klientki",
+  },
+  {
+    id: "mvp-b",
+    href: "/page-mvp-b",
+    title: "Wersja MVP B — te same treści, przestronna kompozycja",
+  },
 ];
 
 /**
