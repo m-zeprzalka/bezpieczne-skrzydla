@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 
+import { SiteFooter } from "@/components/layout/site-footer";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SkipLink } from "@/components/layout/skip-link";
 import { MotionProvider } from "@/components/motion-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { site } from "@/lib/content";
+import { site } from "@/content/site";
+import { JsonLd, organizationJsonLd } from "@/lib/seo";
 
 import "./globals.css";
 
@@ -27,8 +29,7 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
-  description:
-    "Szkolenia, warsztaty i praktyczne narzędzia z zakresu przeciwdziałania mobbingowi, dyskryminacji i przemocy psychicznej w pracy. Autorski Model 4R dla pracowników, HR, pracodawców MŚP i komisji antymobbingowych.",
+  description: site.description,
   keywords: [
     "szkolenia antymobbingowe",
     "mobbing w pracy",
@@ -41,15 +42,16 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: site.owner }],
   creator: site.owner,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "pl_PL",
     url: site.url,
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
-    description:
-      "Bezpieczne miejsce pracy zaczyna się od wiedzy i odwagi reagowania. Szkolenia i praktyczne narzędzia dla pracowników, liderów, HR, pracodawców i komisji antymobbingowych.",
+    description: site.description,
   },
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
 };
 
@@ -60,19 +62,23 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="pl"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${fraunces.variable} h-full antialiased`}
     >
-      <body className="bg-background flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col bg-background">
+        <JsonLd graph={[organizationJsonLd]} />
         <MotionProvider>
-          <TooltipProvider delayDuration={200}>{children}</TooltipProvider>
+          <SkipLink />
+          <SiteHeader />
+          <main id="tresc" className="flex-1">
+            {children}
+          </main>
+          <SiteFooter />
         </MotionProvider>
-        <Toaster position="top-center" />
       </body>
     </html>
   );

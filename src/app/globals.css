@@ -4,36 +4,82 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* ————————————————————————————————————————————————————————————————
+   BEZPIECZNE SKRZYDŁA · DESIGN TOKENS
+   Jedno źródło prawdy dla całej witryny. Dokumentacja: /design-system
+   ———————————————————————————————————————————————————————————————— */
 
+@theme inline {
+  /* — krój — */
   --font-sans: var(--font-inter);
   --font-display: var(--font-fraunces);
-  --font-mono: var(--font-geist-mono);
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
   --font-heading: var(--font-fraunces);
 
-  /* Wariant B ma własną parę krojów — grotesk zamiast szeryfów */
-  --font-grotesk: var(--font-bricolage);
-  --font-body-b: var(--font-geist-b);
+  /* — skala typograficzna (płynna; wartości w /design-system) — */
+  --text-display: clamp(2.6rem, 1.7rem + 3vw, 4.4rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.028em;
+  --text-h1: clamp(2.5rem, 1.85rem + 2.5vw, 4rem);
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.024em;
+  --text-h2: clamp(2rem, 1.5rem + 1.7vw, 3rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.02em;
+  --text-h3: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.012em;
+  --text-h4: 1.1875rem;
+  --text-h4--line-height: 1.3;
+  --text-h4--letter-spacing: -0.008em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-body-sm: 0.9375rem;
+  --text-body-sm--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-label: 0.72rem;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.18em;
 
-  /* Wariant C czyta się jak tekst — szeryfowa antykwa również w treści */
-  --font-read: var(--font-newsreader);
+  /* — kolory semantyczne (shadcn) — */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Wariant D — lekki grotesk w dużych stopniach, światło zamiast konturu */
-  --font-lux: var(--font-manrope);
-  --font-ui-d: var(--font-instrument);
-
-  /* Wariant E — jeden krój, geometryczny grotesk */
-  --font-jakarta: var(--font-plus-jakarta);
-
-  --animate-breathe: breathe 9s ease-in-out infinite;
-  --animate-marquee: marquee 42s linear infinite;
-
-  --color-paper: var(--paper);
-  --color-paper-deep: var(--paper-deep);
-
-  /* Skala marki wyprowadzona z logo Bezpieczne Skrzydła */
+  /* — skala marki wyprowadzona z logo — */
   --color-brand-50: var(--brand-50);
   --color-brand-100: var(--brand-100);
   --color-brand-200: var(--brand-200);
@@ -45,50 +91,65 @@
   --color-brand-800: var(--brand-800);
   --color-brand-900: var(--brand-900);
   --color-brand-950: var(--brand-950);
-  --color-sky-mark: var(--sky-mark);
-  --color-sand: var(--sand);
 
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  /* — barwy towarzyszące — */
+  --color-foundation-50: var(--foundation-50);
+  --color-foundation-100: var(--foundation-100);
+  --color-foundation-200: var(--foundation-200);
+  --color-foundation-300: var(--foundation-300);
+  --color-foundation-600: var(--foundation-600);
+  --color-foundation-700: var(--foundation-700);
+  --color-foundation-900: var(--foundation-900);
+  --color-sand-50: var(--sand-50);
+  --color-sand-100: var(--sand-100);
+  --color-sand-200: var(--sand-200);
+  --color-sand-700: var(--sand-700);
 
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: calc(var(--radius) * 0.75);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.5);
-  --radius-2xl: calc(var(--radius) * 2);
-  --radius-3xl: calc(var(--radius) * 3);
-  --radius-4xl: calc(var(--radius) * 4);
+  /* — powierzchnie i atrament — */
+  --color-surface: var(--surface);
+  --color-surface-tint: var(--surface-tint);
+  --color-surface-deep: var(--surface-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
 
-  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-drift: drift 22s ease-in-out infinite;
-  --animate-shimmer: shimmer 2.6s linear infinite;
+  /* — promienie — */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-4xl: 2.5rem;
+  --radius-field: 0.75rem;
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
+
+  /* — elewacja — */
+  --shadow-hairline: 0 0 0 1px color-mix(in oklch, var(--brand-900) 8%, transparent);
+  --shadow-lift:
+    0 1px 2px -1px color-mix(in oklch, var(--brand-900) 8%, transparent),
+    0 12px 32px -12px color-mix(in oklch, var(--brand-900) 18%, transparent);
+  --shadow-lift-lg:
+    0 2px 4px -2px color-mix(in oklch, var(--brand-900) 10%, transparent),
+    0 28px 64px -20px color-mix(in oklch, var(--brand-900) 28%, transparent);
+  --shadow-float:
+    0 1px 1px -0.5px color-mix(in oklch, var(--brand-900) 6%, transparent),
+    0 8px 16px -8px color-mix(in oklch, var(--brand-900) 14%, transparent),
+    0 32px 64px -28px color-mix(in oklch, var(--brand-900) 22%, transparent);
+
+  /* — ruch — */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+  --animate-marquee: marquee 48s linear infinite;
+  --animate-drift: drift 24s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+
+  /* — kontener — */
+  --container-site: 76rem;
+  --container-prose: 44rem;
 }
 
 :root {
@@ -104,74 +165,86 @@
   --brand-800: oklch(0.3184 0.0708 251);
   --brand-900: oklch(0.2603 0.06 251.9); /* #0B2540 */
   --brand-950: oklch(0.1976 0.0468 253);
-  --sky-mark: oklch(0.8065 0.0511 227.9);
-  --sand: oklch(0.9612 0.0182 78);
 
-  /* Papier wariantu C — ciepła biel pod chłodny granat, jak druk w książce */
-  --paper: oklch(0.9875 0.0038 95);
-  --paper-deep: oklch(0.9642 0.0062 92);
+  /* Fundament — chłodna zieleń o niskiej chromie, siedzi obok błękitów */
+  --foundation-50: oklch(0.975 0.018 168);
+  --foundation-100: oklch(0.945 0.035 168);
+  --foundation-200: oklch(0.9 0.055 168);
+  --foundation-300: oklch(0.82 0.08 168);
+  --foundation-600: oklch(0.55 0.1 168);
+  --foundation-700: oklch(0.47 0.09 168);
+  --foundation-900: oklch(0.3 0.06 168);
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.2603 0.02 251.9);
+  /* Warsztat — ciepły piasek, jedyne ciepło na stronie */
+  --sand-50: oklch(0.985 0.008 80);
+  --sand-100: oklch(0.965 0.018 78);
+  --sand-200: oklch(0.93 0.03 76);
+  --sand-700: oklch(0.55 0.08 60);
+
+  /* powierzchnie i atrament */
+  --surface: oklch(1 0 0);
+  --surface-tint: oklch(0.9834 0.0042 236.5);
+  --surface-deep: oklch(0.1976 0.0468 253);
+  --ink: oklch(0.1976 0.0468 253);
+  --ink-soft: oklch(0.3184 0.0708 251);
+  --ink-muted: oklch(0.49 0.03 249);
+  --line: oklch(0.9114 0.0129 236);
+  --line-strong: oklch(0.8676 0.0378 230);
+
+  /* shadcn */
+  --background: var(--surface);
+  --foreground: var(--ink);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2603 0.02 251.9);
+  --card-foreground: var(--ink);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2603 0.02 251.9);
-  --primary: oklch(0.3851 0.0832 249.5);
-  --primary-foreground: oklch(0.9834 0.0042 236.5);
-  --secondary: oklch(0.9552 0.0128 238);
-  --secondary-foreground: oklch(0.3184 0.0708 251);
+  --popover-foreground: var(--ink);
+  --primary: var(--brand-700);
+  --primary-foreground: var(--brand-50);
+  --secondary: var(--brand-100);
+  --secondary-foreground: var(--brand-800);
   --muted: oklch(0.9662 0.0075 238);
-  --muted-foreground: oklch(0.5219 0.0289 249);
+  --muted-foreground: var(--ink-muted);
   --accent: oklch(0.9436 0.0193 232);
-  --accent-foreground: oklch(0.3184 0.0708 251);
+  --accent-foreground: var(--brand-800);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9114 0.0129 236);
-  --input: oklch(0.9114 0.0129 236);
-  --ring: oklch(0.5088 0.1004 243);
-  --chart-1: oklch(0.3851 0.0832 249.5);
-  --chart-2: oklch(0.5088 0.1004 243);
-  --chart-3: oklch(0.6528 0.0928 236);
-  --chart-4: oklch(0.8065 0.0511 227.9);
-  --chart-5: oklch(0.9236 0.0177 234.5);
-  --radius: 0.75rem;
-  --sidebar: oklch(0.9834 0.0042 236.5);
-  --sidebar-foreground: oklch(0.2603 0.02 251.9);
-  --sidebar-primary: oklch(0.3851 0.0832 249.5);
-  --sidebar-primary-foreground: oklch(0.9834 0.0042 236.5);
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--brand-600);
+  --chart-1: var(--brand-700);
+  --chart-2: var(--brand-600);
+  --chart-3: var(--brand-500);
+  --chart-4: var(--brand-400);
+  --chart-5: var(--brand-200);
+  --radius: 1rem;
+  --sidebar: var(--brand-50);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--brand-700);
+  --sidebar-primary-foreground: var(--brand-50);
   --sidebar-accent: oklch(0.9436 0.0193 232);
-  --sidebar-accent-foreground: oklch(0.3184 0.0708 251);
-  --sidebar-border: oklch(0.9114 0.0129 236);
-  --sidebar-ring: oklch(0.5088 0.1004 243);
+  --sidebar-accent-foreground: var(--brand-800);
+  --sidebar-border: var(--line);
+  --sidebar-ring: var(--brand-600);
 }
 
 .dark {
-  --background: oklch(0.1976 0.0468 253);
-  --foreground: oklch(0.9552 0.0128 238);
-  --card: oklch(0.2603 0.06 251.9);
-  --card-foreground: oklch(0.9552 0.0128 238);
-  --popover: oklch(0.2603 0.06 251.9);
-  --popover-foreground: oklch(0.9552 0.0128 238);
-  --primary: oklch(0.8065 0.0511 227.9);
-  --primary-foreground: oklch(0.1976 0.0468 253);
-  --secondary: oklch(0.3184 0.0708 251);
-  --secondary-foreground: oklch(0.9552 0.0128 238);
-  --muted: oklch(0.3184 0.0708 251);
+  --background: var(--brand-950);
+  --foreground: var(--brand-100);
+  --card: var(--brand-900);
+  --card-foreground: var(--brand-100);
+  --popover: var(--brand-900);
+  --popover-foreground: var(--brand-100);
+  --primary: var(--brand-400);
+  --primary-foreground: var(--brand-950);
+  --secondary: var(--brand-800);
+  --secondary-foreground: var(--brand-100);
+  --muted: var(--brand-800);
   --muted-foreground: oklch(0.7452 0.0342 235);
-  --accent: oklch(0.3184 0.0708 251);
-  --accent-foreground: oklch(0.9552 0.0128 238);
+  --accent: var(--brand-800);
+  --accent-foreground: var(--brand-100);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.6528 0.0928 236);
-  --sidebar: oklch(0.2603 0.06 251.9);
-  --sidebar-foreground: oklch(0.9552 0.0128 238);
-  --sidebar-primary: oklch(0.8065 0.0511 227.9);
-  --sidebar-primary-foreground: oklch(0.1976 0.0468 253);
-  --sidebar-accent: oklch(0.3184 0.0708 251);
-  --sidebar-accent-foreground: oklch(0.9552 0.0128 238);
-  --sidebar-border: oklch(1 0 0 / 12%);
-  --sidebar-ring: oklch(0.6528 0.0928 236);
+  --ring: var(--brand-500);
 }
 
 @layer base {
@@ -181,25 +254,40 @@
 
   html {
     @apply font-sans;
-    scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    scroll-padding-top: 6rem;
+  }
+
+  /* Płynne przewijanie tylko dla osób bez ograniczenia ruchu.
+     Ustawione na html z atrybutem, żeby Next mógł je wyłączać na czas nawigacji. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
-  /* Nagłówki: Fraunces w wariancie „spokojnym" — niska miękkość, bez wonk */
+  /*
+   * Fraunces: odmiana „spokojna” — bez miękkości i bez wonk. Rozmiar optyczny
+   * (opsz) zostawiamy przeglądarce (font-optical-sizing: auto): duże stopnie
+   * dostają większy kontrast kresek, małe — bardziej otwarte litery.
+   */
+  .font-display,
   h1,
   h2,
-  h3,
-  .font-display {
+  h3 {
+    font-family: var(--font-display);
     font-variation-settings:
       "SOFT" 0,
-      "WONK" 0,
-      "opsz" 32;
+      "WONK" 0;
+    font-optical-sizing: auto;
+    font-weight: 400;
   }
 
   ::selection {
@@ -207,11 +295,11 @@
     color: var(--brand-950);
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+  :focus-visible {
+    outline: none;
+  }
 
+  @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
@@ -220,11 +308,7 @@
       transition-duration: 0.01ms !important;
     }
 
-    /* Twarda gwarancja widoczności treści.
-       `useReducedMotion()` zwraca `false` przy hydratacji i dopiero potem
-       `true`, więc animacja wejścia zdąży ustawić `opacity: 0` w stylu
-       liniowym. Ta reguła zdejmuje ten stan niezależnie od czasu wykonania
-       JavaScriptu — treść nigdy nie czeka na przewinięcie. */
+    /* Twarda gwarancja widoczności treści niezależnie od stanu JS. */
     [data-reveal] {
       opacity: 1 !important;
       transform: none !important;
@@ -232,8 +316,116 @@
   }
 }
 
+@layer components {
+  /* — etykieta w kapitalikach (eyebrow) — */
+  .t-label {
+    font-size: var(--text-label);
+    line-height: var(--text-label--line-height);
+    letter-spacing: var(--text-label--letter-spacing);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  /* — numer sekcji rysowany obrysem — */
+  .t-outline {
+    -webkit-text-stroke: 1px var(--brand-300);
+    color: transparent;
+    font-family: var(--font-display);
+    font-variation-settings:
+      "SOFT" 0,
+      "WONK" 0;
+  }
+
+  .t-outline-dark {
+    -webkit-text-stroke: 1px color-mix(in oklch, var(--brand-400) 70%, transparent);
+    color: transparent;
+    font-family: var(--font-display);
+    font-variation-settings:
+      "SOFT" 0,
+      "WONK" 0;
+  }
+
+  /* — odnośnik tekstowy z linią rosnącą od lewej — */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size 320ms var(--ease-out-expo);
+    padding-bottom: 0.1em;
+  }
+
+  .link-underline:hover,
+  .link-underline:focus-visible,
+  .group:hover .link-underline {
+    background-size: 100% 1px;
+  }
+
+  /* — pierścień fokusu marki — */
+  .focus-ring {
+    @apply focus-visible:ring-3 focus-visible:ring-ring/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background outline-none;
+  }
+
+  .focus-ring-dark {
+    @apply focus-visible:ring-3 focus-visible:ring-brand-300/50 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-950 outline-none;
+  }
+
+  /* — miara czytelnicza — */
+  .measure {
+    max-width: 64ch;
+  }
+
+  .measure-tight {
+    max-width: 52ch;
+  }
+
+  /* — prose: treść artykułów — */
+  .prose-bs {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+
+  .prose-bs > * + * {
+    margin-top: 1.4em;
+  }
+
+  .prose-bs h2 {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    letter-spacing: var(--text-h3--letter-spacing);
+    color: var(--ink);
+    margin-top: 2.2em;
+  }
+
+  .prose-bs ul,
+  .prose-bs ol {
+    padding-left: 1.4em;
+  }
+
+  .prose-bs ul > li,
+  .prose-bs ol > li {
+    padding-left: 0.35em;
+  }
+
+  .prose-bs ul > li + li,
+  .prose-bs ol > li + li {
+    margin-top: 0.55em;
+  }
+
+  .prose-bs ul > li::marker {
+    color: var(--brand-500);
+  }
+
+  .prose-bs ol > li::marker {
+    color: var(--brand-600);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
 @layer utilities {
-  /* Miękka poświata w błękitach — tło sekcji hero i CTA */
+  /* — poświata w błękitach: tło sekcji powitalnych — */
   .bg-aurora {
     background-image:
       radial-gradient(
@@ -267,12 +459,30 @@
       );
   }
 
-  /* Siatka 1px — dodaje „inżynierskiego" porządku pod miękkimi gradientami */
+  /* — włoskowa siatka: „inżynierski” porządek pod miękkimi gradientami — */
   .bg-grid {
     background-image:
-      linear-gradient(to right, var(--border) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
     background-size: 72px 72px;
+  }
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* — ziarno: drobna faktura na dużych, płaskich płaszczyznach — */
+  .bg-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .mask-fade-b {
@@ -283,17 +493,17 @@
     mask-image: linear-gradient(
       to right,
       transparent,
-      black 12%,
-      black 88%,
+      black 10%,
+      black 90%,
       transparent
     );
   }
 
-  .text-balance-pretty {
-    text-wrap: pretty;
+  .mask-radial {
+    mask-image: radial-gradient(70% 60% at 50% 40%, black, transparent);
   }
 
-  /* Cienka linia gradientowa — separator sekcji */
+  /* — separator gradientowy — */
   .rule-gradient {
     background-image: linear-gradient(
       to right,
@@ -303,289 +513,18 @@
     );
   }
 
-  .shadow-lift {
-    box-shadow:
-      0 1px 2px -1px color-mix(in oklch, var(--brand-900) 8%, transparent),
-      0 12px 32px -12px color-mix(in oklch, var(--brand-900) 18%, transparent);
-  }
-
-  .shadow-lift-lg {
-    box-shadow:
-      0 2px 4px -2px color-mix(in oklch, var(--brand-900) 10%, transparent),
-      0 24px 64px -20px color-mix(in oklch, var(--brand-900) 26%, transparent);
+  .animate-marquee {
+    animation: var(--animate-marquee);
   }
 
   .animate-drift {
     animation: var(--animate-drift);
   }
 
-  /* — utilities wariantu B — */
-
-  /* Zakres marki dla /page-b: ostrzejsze narożniki i brak szeryfów.
-     Nadpisanie zmiennej działa na wszystkie komponenty shadcn w poddrzewie. */
-  .theme-b {
-    --radius: 0.375rem;
+  .animate-pulse-ring {
+    animation: var(--animate-pulse-ring);
   }
 
-  .theme-b h1,
-  .theme-b h2,
-  .theme-b h3 {
-    font-variation-settings: normal;
-  }
-
-  /* — utilities wariantu H — */
-
-  /*
-   * Wariant H to zmiana paradygmatu: strona-plakat. Wielkie płyty koloru,
-   * masywny grotesk, komponenty o graficznym charakterze — grube kontury
-   * i twarde cienie offsetowe zamiast rozmytych poświat. Jasna baza,
-   * błękity z logo jako bloki, granat jako atrament.
-   */
-  .theme-h {
-    --radius: 1.25rem;
-    --ink: var(--brand-950);
-  }
-
-  /* Twardy cień offsetowy — znak rozpoznawczy komponentów H */
-  .shadow-ink {
-    box-shadow: 6px 6px 0 0 var(--brand-950);
-  }
-
-  .shadow-ink-sm {
-    box-shadow: 4px 4px 0 0 var(--brand-950);
-  }
-
-  .shadow-sky {
-    box-shadow: 6px 6px 0 0 var(--brand-400);
-  }
-
-  /* Uniesienie: cień rośnie, element odjeżdża — czysty CSS, bez JS */
-  .lift-ink {
-    transition:
-      transform 160ms ease,
-      box-shadow 160ms ease;
-  }
-
-  .lift-ink:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 0 var(--brand-950);
-  }
-
-  .lift-ink:active {
-    transform: translate(0, 0);
-    box-shadow: 3px 3px 0 0 var(--brand-950);
-  }
-
-  /* Wielki napis konturowy — plakatowy akcent */
-  .text-stroke-ink {
-    -webkit-text-stroke: 2px var(--brand-950);
-    color: transparent;
-  }
-
-  .text-stroke-white {
-    -webkit-text-stroke: 2px rgb(255 255 255 / 0.85);
-    color: transparent;
-  }
-
-  /* — utilities wariantu F — */
-
-  /*
-   * Wariant finalny łączy dyscyplinę E (sztywny kontener, skokowa typografia,
-   * subgrid) z językiem wizualnym A (Fraunces + błękity z logo). Fonty
-   * dziedziczy z layoutu głównego — trasa nie dokłada ani jednego pliku.
-   */
-  .theme-f {
-    --radius: 1rem;
-  }
-
-  /* Numer sekcji rysowany samym obrysem — duży, ale nie przygniata treści */
-  .text-outline-f {
-    -webkit-text-stroke: 1px var(--brand-300);
-    color: transparent;
-  }
-
-  /* — utilities wariantu E — */
-
-  /*
-   * Wariant E stoi na sztywnym systemie, nie na wyczuciu:
-   *   kontener 1200 px · siatka 12 kolumn · odstęp kolumn 32 px
-   *   skok pionowy 8 px · promienie 12 / 20 / 999
-   * Wszystko poniżej wywodzi się z tych czterech liczb. Brak animacji jest
-   * tu decyzją projektową, a nie oszczędnością — dlatego strona nie importuje
-   * biblioteki ruchu i nie ma ani jednego efektu zależnego od przewijania.
-   */
-  .theme-e {
-    --radius: 0.75rem;
-    --e-gutter: 2rem;
-    --e-accent: oklch(0.5088 0.1004 243);
-  }
-
-  /* Jedyny ruch w całym wariancie: zmiana koloru pod kursorem. */
-  .theme-e a,
-  .theme-e button {
-    transition:
-      color 120ms linear,
-      background-color 120ms linear,
-      border-color 120ms linear;
-  }
-
-  /* Linia podkreślająca słowo kluczowe — rysowana, nie animowana.
-     `background-size` + pozycja 100% kotwiczy pas do dołu wiersza, a
-     `box-decoration-break: clone` powtarza go po zawinięciu tekstu. */
-  .underline-mark {
-    background-image: linear-gradient(var(--brand-300), var(--brand-300));
-    background-repeat: no-repeat;
-    background-size: 100% 0.26em;
-    background-position: 0 96%;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-    padding-inline: 0.04em;
-  }
-
-  /* — utilities wariantu D — */
-
-  .theme-d {
-    --radius: 1.25rem;
-  }
-
-  /* Światło wypełniające kadr — trzy nakładające się źródła, bez twardych krawędzi */
-  /* Światło wypełniające kadr — trzy nakładające się źródła, bez twardych krawędzi.
-     Mieszamy w sRGB, nie w OKLCH: `transparent` ma nieokreślony odcień, więc
-     interpolacja w OKLCH wprowadzała ciepły, różowy nalot na brzegach kadru. */
-  .bg-light-well {
-    background-image:
-      radial-gradient(
-        58% 46% at 50% 8%,
-        color-mix(in srgb, var(--brand-300) 62%, transparent) 0%,
-        transparent 70%
-      ),
-      radial-gradient(
-        44% 40% at 12% 42%,
-        color-mix(in srgb, var(--brand-200) 78%, transparent) 0%,
-        transparent 68%
-      ),
-      radial-gradient(
-        46% 42% at 88% 38%,
-        color-mix(in srgb, var(--brand-200) 70%, transparent) 0%,
-        transparent 68%
-      );
-  }
-
-  /* Szklana tafla: półprzezroczyste tło + włoskowa ramka z gradientu */
-  .glass {
-    position: relative;
-    background-color: color-mix(in oklch, white 72%, transparent);
-    backdrop-filter: blur(20px) saturate(1.25);
-  }
-
-  .glass::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      140deg,
-      color-mix(in oklch, white 92%, transparent),
-      color-mix(in oklch, var(--brand-300) 55%, transparent) 45%,
-      color-mix(in oklch, white 30%, transparent)
-    );
-    /* Maskowanie XOR zostawia sam obrys — ramka bez dodatkowego elementu.
-       Kolejność ma znaczenie: skrót `-webkit-mask` zeruje `mask-composite`,
-       więc warianty prefiksowane muszą stać PRZED standardowymi. */
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  .shadow-lux {
-    box-shadow:
-      0 1px 1px -0.5px color-mix(in oklch, var(--brand-900) 6%, transparent),
-      0 8px 16px -8px color-mix(in oklch, var(--brand-900) 14%, transparent),
-      0 32px 64px -28px color-mix(in oklch, var(--brand-900) 22%, transparent);
-  }
-
-  .shadow-lux-hover {
-    box-shadow:
-      0 1px 1px -0.5px color-mix(in oklch, var(--brand-900) 8%, transparent),
-      0 12px 24px -10px color-mix(in oklch, var(--brand-900) 18%, transparent),
-      0 48px 88px -32px color-mix(in oklch, var(--brand-900) 30%, transparent);
-  }
-
-  .animate-breathe {
-    animation: var(--animate-breathe);
-  }
-
-  .animate-marquee {
-    animation: var(--animate-marquee);
-  }
-
-  /* — utilities wariantu C — */
-
-  /* Strona czytana, nie skanowana: papierowe tło i miękkie narożniki. */
-  .theme-c {
-    --radius: 0.5rem;
-    --background: var(--paper);
-    --card: var(--paper);
-    --popover: var(--paper);
-    --muted: var(--paper-deep);
-    --border: oklch(0.9114 0.0129 236);
-  }
-
-  .theme-c ::selection {
-    background-color: var(--brand-700);
-    color: var(--paper);
-  }
-
-  /* Miara czytelnicza — długość wiersza, nie szerokość ekranu */
-  .measure {
-    max-width: 62ch;
-  }
-
-  .measure-tight {
-    max-width: 52ch;
-  }
-
-  /* Inicjał otwierający sekcję narracyjną */
-  .drop-cap::first-letter {
-    float: left;
-    font-size: 3.1em;
-    line-height: 0.82;
-    padding-right: 0.09em;
-    padding-top: 0.06em;
-    font-weight: 400;
-    color: var(--brand-700);
-  }
-
-  /* Zakreślacz — akcent zamiast koloru tekstu, czytelny także w druku */
-  .marker-accent {
-    background-image: linear-gradient(
-      to bottom,
-      transparent 8%,
-      var(--brand-300) 8%,
-      var(--brand-300) 92%,
-      transparent 92%
-    );
-    padding-inline: 0.12em;
-  }
-
-  /* Włoskowate linie kolumn — rusztowanie „dokumentu”, nie dekoracja */
-  .rule-columns {
-    background-image: linear-gradient(
-      to right,
-      var(--brand-200) 1px,
-      transparent 1px
-    );
-    background-size: calc(100% / 6) 100%;
-  }
-
-  /* Poziome listy przewijane palcem — pasek przeszkadza w layoucie */
   .scrollbar-none {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -593,6 +532,34 @@
 
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Karta z uniesieniem — jeden wspólny język ruchu dla wszystkich kart */
+  .card-lift {
+    transition:
+      transform 500ms var(--ease-out-expo),
+      box-shadow 500ms var(--ease-out-expo),
+      border-color 300ms ease;
+  }
+
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lift-lg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card-lift:hover {
+      transform: none;
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -606,32 +573,13 @@
   }
 }
 
-@keyframes breathe {
-  0%,
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
   100% {
-    transform: scale(1) translate3d(0, 0, 0);
-    opacity: 0.92;
-  }
-  50% {
-    transform: scale(1.035) translate3d(0, -0.8%, 0);
-    opacity: 1;
-  }
-}
-
-@keyframes marquee {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
+    transform: scale(1.8);
+    opacity: 0;
   }
 }

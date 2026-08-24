@@ -1,5 +1,34 @@
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+/**
+ * `tailwind-merge` musi znać własne klasy skali typograficznej (`text-h2`,
+ * `text-lead`…), inaczej traktuje je jak kolory tekstu i usuwa przy łączeniu
+ * z `text-ink`. Lista odpowiada tokenom `--text-*` z `globals.css`.
+ */
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [
+        {
+          text: [
+            "display",
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "lead",
+            "body",
+            "body-sm",
+            "small",
+            "caption",
+            "label",
+          ],
+        },
+      ],
+    },
+  },
+});
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -9,12 +38,7 @@ export function cn(...inputs: ClassValue[]) {
  * Polska odmiana rzeczownika po liczebniku.
  * `pluralPl(3, "materiał", "materiały", "materiałów")` → „materiały”.
  */
-export function pluralPl(
-  count: number,
-  one: string,
-  few: string,
-  many: string,
-) {
+export function pluralPl(count: number, one: string, few: string, many: string) {
   const abs = Math.abs(count);
   if (abs === 1) return one;
 
