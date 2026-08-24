@@ -44,25 +44,15 @@ export const primaryCta = { label: "Poproś o wycenę", href: "/kontakt" } as co
 export const footer = {
   description:
     "Marka edukacyjno-wspierająca poświęcona przeciwdziałaniu mobbingowi, dyskryminacji i przemocy psychicznej w środowisku pracy. Nagrane kursy online z testem i imiennym certyfikatem, a na życzenie klienta szkolenia stacjonarne — w całej Polsce.",
-  columns: [
-    {
-      title: "Oferta",
-      links: [
-        { label: "Wszystkie szkolenia", href: "/szkolenia" },
-        { label: "Pakiet „Bezpieczna Firma”", href: "/cennik#bezpieczna-firma" },
-        { label: "Warsztat „przy kawie”", href: "/warsztat" },
-        { label: "Cennik", href: "/cennik" },
-      ],
-    },
-    {
-      title: "Poznaj",
-      links: [
-        { label: "O Bezpiecznych Skrzydłach", href: "/o-nas" },
-        { label: "Model 4R z Fundamentem", href: "/model-4r" },
-        { label: "Baza wiedzy", href: "/blog" },
-        { label: "Kontakt", href: "/kontakt" },
-      ],
-    },
+  /** Jedna kolumna odnośników — stopka ma trzy kolumny: marka, nawigacja, kontakt. */
+  links: [
+    { label: "Szkolenia", href: "/szkolenia" },
+    { label: "Warsztat „przy kawie”", href: "/warsztat" },
+    { label: "Pakiet „Bezpieczna Firma”", href: "/cennik#bezpieczna-firma" },
+    { label: "Cennik", href: "/cennik" },
+    { label: "Model 4R z Fundamentem", href: "/model-4r" },
+    { label: "O Bezpiecznych Skrzydłach", href: "/o-nas" },
+    { label: "Baza wiedzy", href: "/blog" },
   ],
   legal: [
     { label: "Polityka prywatności", href: "/polityka-prywatnosci" },

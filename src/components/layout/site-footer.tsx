@@ -6,44 +6,41 @@ import { Container } from "@/components/system/container";
 import { SocialLinks } from "@/components/system/social-icons";
 import { footer, site } from "@/content/site";
 
-/** Stopka: marka, kolumny odnośników, kontakt, dane rejestrowe i dokumenty. Bez ornamentów. */
+/** Stopka w trzech kolumnach: marka · nawigacja · kontakt. Bez ornamentów. */
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-brand-100 bg-surface-tint">
       <Container className="py-20 md:py-24">
-
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-12">
           <div className="md:col-span-4">
             <Link href="/" className="focus-ring inline-block rounded-full" aria-label={`${site.name} — strona główna`}>
               <BrandMark size={44} />
             </Link>
-            <p className="mt-6 max-w-[26rem] text-body-sm text-ink-muted">{footer.description}</p>
-            <SocialLinks className="mt-7" />
+            <p className="mt-6 max-w-[24rem] text-small text-ink-muted">{footer.description}</p>
+            <SocialLinks className="mt-8" />
           </div>
 
-          {footer.columns.map((column) => (
-            <nav key={column.title} aria-label={column.title} className="md:col-span-2">
-              <p className="t-label text-brand-600">{column.title}</p>
-              <ul className="mt-5 flex flex-col gap-3">
-                {column.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="focus-ring link-underline rounded-sm text-[0.9375rem] text-brand-900/85 transition-colors hover:text-brand-700"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
+          <nav aria-label="Nawigacja w stopce" className="md:col-span-3 md:col-start-6">
+            <p className="t-label text-brand-600">Nawigacja</p>
+            <ul className="mt-6 flex flex-col gap-3.5">
+              {footer.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="focus-ring link-underline rounded-sm text-[0.9375rem] text-brand-900/85 transition-colors hover:text-brand-700"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-          <div className="md:col-span-4 lg:pl-6">
+          <div className="md:col-span-4 md:col-start-9">
             <p className="t-label text-brand-600">Kontakt</p>
-            <address className="mt-5 flex flex-col gap-3 text-[0.9375rem] not-italic">
+            <address className="mt-6 flex flex-col gap-3.5 text-[0.9375rem] not-italic">
               <a
                 href={`tel:${site.phoneHref}`}
                 className="focus-ring flex items-center gap-2.5 rounded-sm font-medium text-brand-900 transition-colors hover:text-brand-600"
@@ -59,7 +56,7 @@ export function SiteFooter() {
                 {site.email}
               </a>
             </address>
-            <dl className="mt-6 flex flex-col gap-1 text-caption text-ink-muted">
+            <dl className="mt-7 flex flex-col gap-1.5 text-caption text-ink-muted">
               <div className="flex gap-2">
                 <dt className="font-semibold">NIP</dt>
                 <dd>{site.nip}</dd>

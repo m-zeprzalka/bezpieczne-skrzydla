@@ -69,29 +69,24 @@ export function PriceCards({ showIncludes = false, className }: { showIncludes?:
         </article>
       </Reveal>
 
-      {/* cztery pozycje w dwóch kolumnach — na szerokich ekranach karta układa się
-          poziomo: nazwa i cena po lewej, opis i akcja po prawej */}
+      {/* cztery pozycje w dwóch kolumnach; wnętrze karty zawsze w jednej kolumnie */}
       <RevealGroup className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         {plans.map((plan) => (
           <RevealItem key={plan.id} className="flex">
             <article
               id={plan.id}
-              className="flex w-full scroll-mt-28 flex-col gap-6 rounded-card border border-white/10 bg-white/[0.05] p-7 transition-colors duration-300 hover:bg-white/[0.08] lg:flex-row lg:gap-10 lg:p-8"
+              className="flex w-full scroll-mt-28 flex-col rounded-card border border-white/10 bg-white/[0.05] p-7 transition-colors duration-300 hover:bg-white/[0.08] lg:p-9"
             >
-              <div className="lg:w-[13rem] lg:shrink-0">
-                <span className="t-label text-brand-300">{plan.name}</span>
-                <p className="mt-5 font-display text-[1.75rem] leading-none tracking-tight text-white">{plan.price}</p>
-                <p className="mt-2 text-caption text-brand-300/80">{plan.audience}</p>
-              </div>
-              <div className="flex flex-1 flex-col">
-                <p className="flex-1 text-small text-pretty text-brand-100/85">{plan.description}</p>
-                <Button asChild variant="inverse" size="lg" className="mt-6 w-full sm:w-auto sm:self-start">
-                  <Link href={quoteHref(plan.id)}>
-                    {pricing.cta}
-                    <ArrowRight data-icon="inline-end" />
-                  </Link>
-                </Button>
-              </div>
+              <span className="t-label text-brand-300">{plan.name}</span>
+              <p className="mt-5 font-display text-[1.75rem] leading-none tracking-tight text-white">{plan.price}</p>
+              <p className="mt-2 text-caption text-brand-300/80">{plan.audience}</p>
+              <p className="mt-6 max-w-[32rem] flex-1 text-small text-pretty text-brand-100/85">{plan.description}</p>
+              <Button asChild variant="inverse" size="lg" className="mt-8 w-full sm:w-auto sm:self-start">
+                <Link href={quoteHref(plan.id)}>
+                  {pricing.cta}
+                  <ArrowRight data-icon="inline-end" />
+                </Link>
+              </Button>
             </article>
           </RevealItem>
         ))}

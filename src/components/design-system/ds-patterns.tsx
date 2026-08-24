@@ -17,7 +17,7 @@ export function DsPatterns() {
             ["Sekcje", "naprzemienne tony white / tint; jedna ciemna najwyżej"],
             ["Powiązane", "karty pozostałych szkoleń, podobne wpisy"],
             ["CtaBand", "jeden przycisk główny + telefon, zawsze na ciemnym tle"],
-            ["Stopka", "marka, dwie kolumny odnośników, kontakt, dokumenty"],
+            ["Stopka", "trzy kolumny: marka, nawigacja, kontakt; pasek z dokumentami"],
           ].map(([name, text], i) => (
             <li key={name} className="flex flex-col rounded-card border border-brand-200/80 bg-white p-4">
               <span className="t-outline text-[1.4rem] leading-none">{String(i + 1).padStart(2, "0")}</span>
