@@ -22,7 +22,7 @@ const statIcons = {
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <div aria-hidden className="bg-aurora absolute inset-x-0 -top-40 -z-10 h-[720px] opacity-35" />
+      <div aria-hidden className="bg-aurora absolute inset-x-0 top-0 -z-10 h-[640px] opacity-60" />
 
       <Container className="grid grid-cols-1 items-center gap-x-12 gap-y-16 pt-16 pb-20 sm:pt-20 md:grid-cols-12 lg:pt-28 lg:pb-28">
         <div className="md:col-span-7 lg:pr-10">
@@ -46,7 +46,7 @@ export function Hero() {
             {hero.body}
           </Reveal>
 
-          <Reveal delay={0.7} className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <Reveal delay={0.7} className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Button asChild variant="brand" size="xl" className="w-full sm:w-auto">
               <Link href={hero.primaryCta.href}>
                 {hero.primaryCta.label}
@@ -56,12 +56,9 @@ export function Hero() {
                 />
               </Link>
             </Button>
-            <Link
-              href={hero.secondaryCta.href}
-              className="focus-ring link-underline rounded-sm text-[0.9rem] font-semibold text-brand-800 transition-colors hover:text-brand-600"
-            >
-              {hero.secondaryCta.label}
-            </Link>
+            <Button asChild variant="outline-brand" size="xl" className="w-full sm:w-auto">
+              <Link href={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link>
+            </Button>
           </Reveal>
 
           <Reveal delay={0.8} className="mt-12">

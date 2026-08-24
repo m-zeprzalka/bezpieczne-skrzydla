@@ -40,11 +40,11 @@ export function WorkshopCard({ className }: { className?: string }) {
     <Link
       href="/warsztat"
       className={cn(
-        "card-lift focus-ring group relative flex h-full flex-col rounded-card border border-sand-200 bg-sand-50 p-7 sm:p-8",
+        "card-lift focus-ring group relative flex h-full min-w-0 flex-col rounded-card border border-sand-200 bg-sand-50 p-7 sm:p-8",
         className,
       )}
     >
-      <Pill variant="label-outline" className="w-fit border-sand-200 bg-white/80 text-sand-700">
+      <Pill variant="label-outline" className="w-fit border-sand-200 bg-white/80 text-center text-sand-700">
         <Coffee />
         {workshop.badge}
       </Pill>

@@ -113,7 +113,6 @@ export function DsComponents() {
             <Coffee />
             To warsztat, nie szkolenie
           </Pill>
-          <Pill variant="foundation">Fundament</Pill>
           <Pill variant="sand">Warsztat</Pill>
         </Specimen>
         <Specimen tone="dark" className="mt-4">

@@ -27,14 +27,6 @@ export const brandScale: ColorToken[] = [
   { name: "brand-950", css: "--brand-950", value: { l: 0.1976, c: 0.0468, h: 253 }, usage: "atrament nagłówków, tło sekcji „deep”" },
 ];
 
-export const foundationScale: ColorToken[] = [
-  { name: "foundation-50", css: "--foundation-50", value: { l: 0.975, c: 0.018, h: 168 }, usage: "tło panelu Fundament" },
-  { name: "foundation-200", css: "--foundation-200", value: { l: 0.9, c: 0.055, h: 168 }, usage: "obramowanie, pastylki" },
-  { name: "foundation-300", css: "--foundation-300", value: { l: 0.82, c: 0.08, h: 168 }, usage: "linia cytatu o Fundamencie" },
-  { name: "foundation-600", css: "--foundation-600", value: { l: 0.55, c: 0.1, h: 168 }, usage: "ikony, strzałka „gotowość”" },
-  { name: "foundation-900", css: "--foundation-900", value: { l: 0.3, c: 0.06, h: 168 }, usage: "tekst na tle Fundamentu" },
-];
-
 export const sandScale: ColorToken[] = [
   { name: "sand-50", css: "--sand-50", value: { l: 0.985, c: 0.008, h: 80 }, usage: "tło strony warsztatu" },
   { name: "sand-100", css: "--sand-100", value: { l: 0.965, c: 0.018, h: 78 }, usage: "gradient karty warsztatu" },
@@ -49,6 +41,7 @@ export const semanticTokens = [
   ["--surface", "biel", "tło strony i kart"],
   ["--surface-tint", "brand-50", "sekcje naprzemienne, tło formularzy"],
   ["--surface-deep", "brand-950", "sekcje ciemne: cennik, pasy CTA, panel zapisu"],
+  ["brand-900", "granat", "podstawa Fundamentu pod etapami Modelu 4R — jedyny sposób odróżnienia warstwy od etapów"],
   ["--ink", "brand-950", "nagłówki i tekst główny"],
   ["--ink-soft", "brand-800", "treść artykułów"],
   ["--ink-muted", "oklch(0.49 0.03 249)", "opisy, leady, podpisy — 4,5:1 na bieli"],

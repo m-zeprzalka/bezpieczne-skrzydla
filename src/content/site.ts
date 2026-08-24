@@ -21,7 +21,7 @@ export const site = {
   nip: "728 250 06 96",
   regon: "545292029",
   /** Ścieżka do zdjęcia autorki — po dostarczeniu pliku wystarczy ją podać. */
-  authorPhoto: null as string | null,
+  authorPhoto: "/mj.jpg" as string | null,
   socials: {
     facebook: "https://www.facebook.com/profile.php?id=61575286035085",
     instagram: "https://www.instagram.com/bezpieczneskrzydla/",

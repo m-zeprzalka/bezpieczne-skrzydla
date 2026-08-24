@@ -3,14 +3,14 @@ import { Container } from "@/components/system/container";
 import { ModelDiagram } from "@/components/pages/model-diagram";
 import { Reveal } from "@/components/system/reveal";
 import { Section, SectionHead } from "@/components/system/section";
-import { approach, model4r } from "@/content/model-4r";
+import { approach } from "@/content/model-4r";
 
 /** Model 4R z Fundamentem — drugi blok strony, zgodnie ze schematem klientki. */
 export function ModelTeaser() {
   return (
-    <Section id="model-4r" tone="tint" className="overflow-hidden">
-      <Container className="relative">
-        <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-12">
+    <Section id="model-4r" tone="tint">
+      <Container>
+        <div className="grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <SectionHead
               index="01"
@@ -19,29 +19,6 @@ export function ModelTeaser() {
               accent="Model 4R"
               after="z Fundamentem"
             />
-
-            {/* sygnatura: cztery R i fundament pod nimi */}
-            <Reveal delay={0.2} className="mt-10 inline-flex flex-col gap-2.5">
-              <span className="flex items-center gap-2.5">
-                {model4r.steps.map((step, i) => (
-                  <span key={step.key} className="flex items-center gap-2.5">
-                    <span
-                      className="grid size-9 place-items-center rounded-full border border-brand-300 bg-white font-display text-[0.95rem] text-brand-700"
-                      title={step.title}
-                    >
-                      R
-                    </span>
-                    {i < model4r.steps.length - 1 ? <span aria-hidden className="h-px w-4 bg-brand-300" /> : null}
-                  </span>
-                ))}
-              </span>
-              <span
-                aria-hidden
-                className="t-label grid h-7 place-items-center rounded-lg border border-foundation-200 bg-foundation-50 text-foundation-900"
-              >
-                Fundament
-              </span>
-            </Reveal>
           </div>
 
           <div className="flex flex-col gap-6 md:col-span-7 md:pt-12 lg:pl-8">
@@ -53,7 +30,7 @@ export function ModelTeaser() {
             <Reveal
               delay={0.2}
               as="p"
-              className="max-w-[34rem] border-l-2 border-foundation-300 pl-5 text-small text-pretty text-brand-900/90"
+              className="max-w-[34rem] border-l-2 border-brand-300 pl-5 text-small text-pretty text-brand-900/90"
             >
               {approach.foundationIntro}
             </Reveal>

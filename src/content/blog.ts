@@ -3,6 +3,8 @@
  *
  * UWAGA: to wpisy PRZYKŁADOWE (mock), napisane głosem autorki na podstawie
  * treści szkoleń i Modelu 4R, aby pokazać docelowy układ i typografię bloga.
+ * Zdjęcia okładek pochodzą z darmowego stocku (Lorem Picsum / licencja Unsplash)
+ * i również są placeholderami.
  * Przed publikacją klientka zastępuje je własnymi tekstami — struktura
  * (`PostBlock`) jest gotowa do podpięcia pod CMS lub pliki MDX.
  */
@@ -32,14 +34,17 @@ export type Post = {
   readingMinutes: number;
   /** Numer szkolenia, które rozwija temat wpisu. */
   training?: string;
-  /** Odcień okładki generowanej w kodzie (brak zdjęć na tym etapie). */
-  tone: "sky" | "deep" | "sand" | "foundation";
+  /** Zdjęcie okładki (public/blog/…). Bez zdjęcia — okładka z gradientu w tonie `tone`. */
+  image?: string;
+  /** Odcień okładki zastępczej i podpisu na zdjęciu. */
+  tone: "sky" | "deep" | "sand";
   blocks: PostBlock[];
 };
 
 export const posts: Post[] = [
   {
     slug: "konflikt-czy-mobbing-piec-pytan",
+    image: "/blog/konflikt-czy-mobbing-piec-pytan.jpg",
     title: "Konflikt czy mobbing? Pięć pytań, które pomagają to odróżnić",
     excerpt:
       "„Czy ja przypadkiem nie przesadzam?” — to zdanie słyszę najczęściej. Zamiast odpowiadać za Ciebie, pokazuję, na co patrzeć: powtarzalność, czas trwania, kierunek i skutki.",
@@ -95,6 +100,7 @@ export const posts: Post[] = [
   },
   {
     slug: "pierwsze-24-godziny-po-zgloszeniu",
+    image: "/blog/pierwsze-24-godziny-po-zgloszeniu.jpg",
     title: "Pierwsze 24 godziny po zgłoszeniu: co zrobić, a czego nie robić",
     excerpt:
       "Ktoś przyszedł do Ciebie i powiedział „nie czuję się bezpiecznie”. Nie musisz znać wszystkich odpowiedzi. Musisz wiedzieć, jak nie pogorszyć sytuacji.",
@@ -146,6 +152,7 @@ export const posts: Post[] = [
   },
   {
     slug: "procedura-antymobbingowa-w-malej-firmie",
+    image: "/blog/procedura-antymobbingowa-w-malej-firmie.jpg",
     title: "Procedura antymobbingowa w małej firmie — czy naprawdę jej potrzebujesz?",
     excerpt:
       "„U nas wszyscy się znają.” Rozumiem to zdanie. Tyle że mała firma ma mniej miejsc, w których można się schować — i tym bardziej potrzebuje trzech prostych rzeczy.",
@@ -153,7 +160,7 @@ export const posts: Post[] = [
     date: "2026-08-04",
     readingMinutes: 5,
     training: "03",
-    tone: "foundation",
+    tone: "sky",
     blocks: [
       {
         type: "p",
@@ -194,6 +201,7 @@ export const posts: Post[] = [
   },
   {
     slug: "notatka-ktora-sie-broni",
+    image: "/blog/notatka-ktora-sie-broni.jpg",
     title: "Notatka, która się broni. Jak dokumentować trudne sytuacje",
     excerpt:
       "Rzeczowa dokumentacja chroni wszystkie strony. Notatka, która powstaje od razu, jest warta więcej niż najlepsza rekonstrukcja po miesiącach. Pokazuję, jak ją napisać.",
@@ -240,6 +248,7 @@ export const posts: Post[] = [
   },
   {
     slug: "cisza-swiadkow",
+    image: "/blog/cisza-swiadkow.jpg",
     title: "Cisza świadków. Dlaczego nikt nie reaguje i co można z tym zrobić",
     excerpt:
       "Najtrudniejsza w mobbingu bywa nie osoba, która krzywdzi, tylko cisza wszystkich pozostałych. Reakcja świadka nie musi oznaczać konfrontacji ani donosu.",
@@ -281,13 +290,14 @@ export const posts: Post[] = [
   },
   {
     slug: "fundament-prewencja-ktora-dziala-wczesniej",
+    image: "/blog/fundament-prewencja-ktora-dziala-wczesniej.jpg",
     title: "Fundament: prewencja, która działa, zanim cokolwiek się wydarzy",
     excerpt:
       "Cztery etapy Modelu 4R uruchamiają się, kiedy coś już się stało. Fundament działa wcześniej i cały czas. Wyjaśniam, dlaczego nie jest piątym etapem — i co się na niego składa.",
     category: "Model 4R",
     date: "2026-07-14",
     readingMinutes: 5,
-    tone: "foundation",
+    tone: "sky",
     blocks: [
       {
         type: "p",

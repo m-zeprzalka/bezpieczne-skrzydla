@@ -19,12 +19,16 @@ import {
 import { primaryCta, primaryNav, site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
+/** Wysokość belki — identyczna w nagłówku i w górnej belce menu mobilnego. */
+const BAR = "h-[4.5rem]";
+
 /**
  * Nagłówek witryny.
  *
- * Zachowanie: przy przewijaniu w dół chowa się (więcej miejsca na treść na
- * telefonie), przy przewijaniu w górę wraca; po 24 px zyskuje tło i cień.
- * Aktywna pozycja menu wynika ze ścieżki (`usePathname`).
+ * Chowanie przy przewijaniu w dół działa z histerezą: dopiero po 32 px
+ * ciągłego ruchu w jedną stronę, żeby belka nie migotała, a przejście
+ * trwa 450 ms z łagodną krzywą. Menu mobilne zajmuje cały ekran; jego
+ * górna belka powtarza układ nagłówka (logo po lewej, przycisk po prawej).
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -34,15 +38,20 @@ export function SiteHeader() {
 
   React.useEffect(() => {
     let last = window.scrollY;
+    let streak = 0;
     let ticking = false;
 
     const update = () => {
       const y = window.scrollY;
-      setScrolled(y > 24);
-      // Chowamy dopiero po przewinięciu poza nagłówek i tylko przy ruchu w dół.
-      if (y > 160 && y > last + 6) setHidden(true);
-      else if (y < last - 6 || y < 160) setHidden(false);
+      const delta = y - last;
+      streak = Math.sign(delta) === Math.sign(streak) ? streak + delta : delta;
       last = y;
+
+      setScrolled(y > 16);
+      if (y < 120) setHidden(false);
+      else if (streak > 32) setHidden(true);
+      else if (streak < -32) setHidden(false);
+
       ticking = false;
     };
 
@@ -65,20 +74,14 @@ export function SiteHeader() {
     <header
       data-scrolled={scrolled || undefined}
       className={cn(
-        "sticky top-0 z-50 transition-[transform,background-color,box-shadow,border-color] duration-500 ease-out-expo",
+        "sticky top-0 z-50 transition-[transform,background-color,box-shadow,border-color] duration-[450ms] ease-in-out-soft",
         scrolled
-          ? "border-b border-brand-100/80 bg-white/85 shadow-[0_8px_32px_-24px_rgba(11,37,64,0.35)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/75"
+          ? "border-b border-brand-100/80 bg-white/85 shadow-[0_8px_32px_-24px_rgba(11,37,64,0.3)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/75"
           : "border-b border-transparent bg-white/0",
         hidden && !open ? "-translate-y-full" : "translate-y-0",
       )}
     >
-      <div
-        className={cn(
-          CONTAINER,
-          "flex items-center justify-between gap-6 transition-[height] duration-500 ease-out-expo",
-          scrolled ? "h-16" : "h-[4.5rem]",
-        )}
-      >
+      <div className={cn(CONTAINER, BAR, "flex items-center justify-between gap-6")}>
         <Link href="/" aria-label={`${site.name} — strona główna`} className="focus-ring shrink-0 rounded-full">
           <BrandMark preload />
         </Link>
@@ -143,14 +146,18 @@ export function SiteHeader() {
             <SheetContent
               side="right"
               showCloseButton={false}
-              className="w-full gap-0 border-l-0 bg-white p-0 sm:max-w-md"
+              className="flex h-dvh flex-col gap-0 border-l-0 bg-white p-0 data-[side=right]:w-full data-[side=right]:sm:max-w-none"
             >
-              <div className="flex h-20 items-center justify-between border-b border-brand-100 px-5 sm:px-8">
-                <SheetTitle className="sr-only">Menu</SheetTitle>
-                <SheetDescription className="sr-only">
-                  Nawigacja witryny {site.name}
-                </SheetDescription>
-                <BrandMark />
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <SheetDescription className="sr-only">Nawigacja witryny {site.name}</SheetDescription>
+
+              {/* górna belka = kopia nagłówka: ta sama wysokość, te same marginesy */}
+              <div className={cn(CONTAINER, BAR, "flex shrink-0 items-center justify-between gap-6 border-b border-brand-100")}>
+                <SheetClose asChild>
+                  <Link href="/" aria-label={`${site.name} — strona główna`} className="focus-ring shrink-0 rounded-full">
+                    <BrandMark />
+                  </Link>
+                </SheetClose>
                 <SheetClose asChild>
                   <Button variant="outline-brand" size="icon-lg" aria-label="Zamknij menu">
                     <X className="size-5" />
@@ -158,9 +165,9 @@ export function SiteHeader() {
                 </SheetClose>
               </div>
 
-              <nav aria-label="Nawigacja mobilna" className="flex-1 overflow-y-auto px-5 py-6 sm:px-8">
+              <nav aria-label="Nawigacja mobilna" className={cn(CONTAINER, "min-h-0 flex-1 overflow-y-auto py-4")}>
                 <ul className="flex flex-col">
-                  {primaryNav.map((item, i) => {
+                  {primaryNav.map((item) => {
                     const active = isActive(item.href);
                     return (
                       <li key={item.href} className="border-b border-brand-100 last:border-b-0">
@@ -168,17 +175,16 @@ export function SiteHeader() {
                           <Link
                             href={item.href}
                             aria-current={active ? "page" : undefined}
-                            style={{ transitionDelay: `${60 + i * 40}ms` }}
                             className={cn(
-                              "focus-ring group flex items-center justify-between gap-4 rounded-md py-4 font-display text-[1.55rem] leading-tight tracking-tight transition-colors",
+                              "focus-ring group flex min-h-14 items-center justify-between gap-4 rounded-md py-3 font-display text-[1.3rem] leading-tight tracking-tight transition-colors sm:text-[1.45rem]",
                               active ? "text-brand-600" : "text-ink hover:text-brand-700",
                             )}
                           >
-                            <span>{item.label}</span>
+                            <span className="min-w-0">{item.label}</span>
                             <ArrowRight
                               aria-hidden
                               className={cn(
-                                "size-5 transition-[transform,color] duration-300",
+                                "size-5 shrink-0 transition-[transform,color] duration-300",
                                 active ? "text-brand-600" : "text-brand-300 group-hover:translate-x-1 group-hover:text-brand-600",
                               )}
                             />
@@ -190,30 +196,30 @@ export function SiteHeader() {
                 </ul>
               </nav>
 
-              <div className="flex flex-col gap-4 border-t border-brand-100 bg-brand-50/60 px-5 py-6 sm:px-8">
-                <SheetClose asChild>
-                  <Button asChild variant="brand" size="xl" className="w-full">
-                    <Link href={primaryCta.href}>
-                      {primaryCta.label}
-                      <ArrowRight data-icon="inline-end" />
-                    </Link>
+              <div className={cn(CONTAINER, "shrink-0 border-t border-brand-100 bg-surface-tint py-6")}>
+                <div className="flex flex-col gap-3">
+                  <SheetClose asChild>
+                    <Button asChild variant="brand" size="xl" className="w-full">
+                      <Link href={primaryCta.href}>
+                        {primaryCta.label}
+                        <ArrowRight data-icon="inline-end" />
+                      </Link>
+                    </Button>
+                  </SheetClose>
+                  <Button asChild variant="outline-brand" size="xl" className="w-full">
+                    <a href={`tel:${site.phoneHref}`}>
+                      <Phone data-icon="inline-start" />
+                      {site.phone}
+                    </a>
                   </Button>
-                </SheetClose>
-                <Button asChild variant="outline-brand" size="xl" className="w-full">
-                  <a href={`tel:${site.phoneHref}`}>
-                    <Phone data-icon="inline-start" />
-                    {site.phone}
-                  </a>
-                </Button>
-                <div className="flex items-center justify-between pt-2">
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="focus-ring rounded-sm text-[0.875rem] font-medium text-brand-800 hover:text-brand-600"
-                  >
-                    {site.email}
-                  </a>
-                  <SocialLinks className="gap-2 [&_a]:size-10" />
                 </div>
+                <SocialLinks className="mt-6 [&_a]:size-10" />
+                <a
+                  href={`mailto:${site.email}`}
+                  className="focus-ring mt-4 inline-block rounded-sm text-[0.875rem] font-medium break-all text-brand-800 hover:text-brand-600"
+                >
+                  {site.email}
+                </a>
               </div>
             </SheetContent>
           </Sheet>

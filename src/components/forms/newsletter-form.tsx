@@ -30,11 +30,11 @@ export function NewsletterForm({
         role="status"
         className={cn(
           "flex items-center gap-3 rounded-field px-4 py-3 text-[0.9375rem] font-medium",
-          dark ? "bg-white/10 text-white" : "bg-foundation-50 text-foundation-900",
+          dark ? "bg-white/10 text-white" : "bg-brand-50 text-brand-900",
           className,
         )}
       >
-        <CheckCircle2 className={cn("size-5", dark ? "text-brand-300" : "text-foundation-600")} aria-hidden />
+        <CheckCircle2 className={cn("size-5", dark ? "text-brand-300" : "text-brand-600")} aria-hidden />
         Dziękuję — sprawdź skrzynkę, pierwsze materiały są w drodze.
       </p>
     );

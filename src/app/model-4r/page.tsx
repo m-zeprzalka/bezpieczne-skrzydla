@@ -47,7 +47,7 @@ export default function ModelPage() {
                   <span className="font-display text-[1.1rem] text-ink">{step.title}</span>
                 </li>
               ))}
-              <li className="t-label col-span-2 grid h-11 place-items-center rounded-card border border-foundation-200 bg-foundation-50 text-foundation-900">
+              <li className="t-label col-span-2 grid h-11 place-items-center rounded-card bg-brand-900 text-brand-100">
                 Fundament — warstwa prewencyjna
               </li>
             </ol>
@@ -67,7 +67,7 @@ export default function ModelPage() {
                   {paragraph}
                 </Reveal>
               ))}
-              <Reveal delay={0.15} as="p" className="max-w-[38rem] border-l-2 border-foundation-300 pl-5 text-small text-pretty text-brand-900/90">
+              <Reveal delay={0.15} as="p" className="max-w-[38rem] border-l-2 border-brand-300 pl-5 text-small text-pretty text-brand-900/90">
                 {approach.foundationIntro}
               </Reveal>
             </div>

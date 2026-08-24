@@ -17,10 +17,10 @@
   --font-heading: var(--font-fraunces);
 
   /* — skala typograficzna (płynna; wartości w /design-system) — */
-  --text-display: clamp(2.5rem, 1.75rem + 2.4vw, 3.75rem);
+  --text-display: clamp(2.125rem, 1.4rem + 2.6vw, 3.75rem);
   --text-display--line-height: 1.05;
   --text-display--letter-spacing: -0.025em;
-  --text-h1: clamp(2.25rem, 1.7rem + 1.8vw, 3.25rem);
+  --text-h1: clamp(2rem, 1.5rem + 1.9vw, 3.25rem);
   --text-h1--line-height: 1.08;
   --text-h1--letter-spacing: -0.022em;
   --text-h2: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem);
@@ -92,14 +92,7 @@
   --color-brand-900: var(--brand-900);
   --color-brand-950: var(--brand-950);
 
-  /* — barwy towarzyszące — */
-  --color-foundation-50: var(--foundation-50);
-  --color-foundation-100: var(--foundation-100);
-  --color-foundation-200: var(--foundation-200);
-  --color-foundation-300: var(--foundation-300);
-  --color-foundation-600: var(--foundation-600);
-  --color-foundation-700: var(--foundation-700);
-  --color-foundation-900: var(--foundation-900);
+  /* — barwa towarzysząca: piasek warsztatu (jedyne ciepło na stronie) — */
   --color-sand-50: var(--sand-50);
   --color-sand-100: var(--sand-100);
   --color-sand-200: var(--sand-200);
@@ -165,15 +158,6 @@
   --brand-800: oklch(0.3184 0.0708 251);
   --brand-900: oklch(0.2603 0.06 251.9); /* #0B2540 */
   --brand-950: oklch(0.1976 0.0468 253);
-
-  /* Fundament — chłodna zieleń o niskiej chromie, siedzi obok błękitów */
-  --foundation-50: oklch(0.975 0.018 168);
-  --foundation-100: oklch(0.945 0.035 168);
-  --foundation-200: oklch(0.9 0.055 168);
-  --foundation-300: oklch(0.82 0.08 168);
-  --foundation-600: oklch(0.55 0.1 168);
-  --foundation-700: oklch(0.47 0.09 168);
-  --foundation-900: oklch(0.3 0.06 168);
 
   /* Warsztat — ciepły piasek, jedyne ciepło na stronie */
   --sand-50: oklch(0.985 0.008 80);
@@ -425,38 +409,24 @@
 }
 
 @layer utilities {
-  /* — poświata w błękitach: tło sekcji powitalnych — */
+  /* — światło: jedno, miękkie źródło u góry po prawej + delikatny spad do bieli.
+       Żadnych kolorowych plam — tło ma być powietrzem, nie ilustracją. — */
   .bg-aurora {
     background-image:
       radial-gradient(
-        60% 55% at 12% 8%,
-        color-mix(in srgb, var(--brand-400) 42%, transparent) 0%,
-        transparent 62%
+        70% 55% at 85% 0%,
+        color-mix(in srgb, var(--brand-200) 55%, transparent) 0%,
+        transparent 70%
       ),
-      radial-gradient(
-        48% 45% at 88% 4%,
-        color-mix(in srgb, var(--brand-300) 55%, transparent) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        70% 60% at 62% 96%,
-        color-mix(in srgb, var(--brand-200) 70%, transparent) 0%,
-        transparent 65%
-      );
+      linear-gradient(180deg, var(--brand-50) 0%, white 70%);
   }
 
   .bg-aurora-deep {
-    background-image:
-      radial-gradient(
-        55% 60% at 15% 0%,
-        color-mix(in srgb, var(--brand-600) 55%, transparent) 0%,
-        transparent 60%
-      ),
-      radial-gradient(
-        50% 50% at 90% 20%,
-        color-mix(in srgb, var(--brand-500) 32%, transparent) 0%,
-        transparent 62%
-      );
+    background-image: radial-gradient(
+      70% 60% at 85% 0%,
+      color-mix(in srgb, var(--brand-700) 50%, transparent) 0%,
+      transparent 70%
+    );
   }
 
   /* — włoskowa siatka: „inżynierski” porządek pod miękkimi gradientami — */

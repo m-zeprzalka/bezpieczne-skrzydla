@@ -90,7 +90,7 @@ export function QuoteForm({ className }: { className?: string }) {
           className,
         )}
       >
-        <span className="grid size-12 place-items-center rounded-full bg-foundation-100 text-foundation-700">
+        <span className="grid size-12 place-items-center rounded-full bg-brand-100 text-brand-700">
           <CheckCircle2 className="size-6" aria-hidden />
         </span>
         <h3 className="mt-6 font-display text-h3 text-ink">{quoteForm.success.title}</h3>

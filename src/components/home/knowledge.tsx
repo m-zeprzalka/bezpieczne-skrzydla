@@ -47,15 +47,13 @@ export function KnowledgeHome() {
               </div>
               <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-6">
                 {resources.map((item) => (
-                  <li key={item.id} className="flex gap-3.5 rounded-card border border-white/10 p-5">
-                    <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/10 text-brand-200">
-                      <FileDown className="size-4" aria-hidden />
+                  <li key={item.id} className="flex flex-col rounded-card border border-white/10 p-5">
+                    <span className="grid size-10 place-items-center rounded-lg bg-white/10 text-brand-200">
+                      <FileDown className="size-[1.1rem]" aria-hidden />
                     </span>
-                    <span className="flex min-w-0 flex-col">
-                      <span className="t-label text-[0.6rem] text-brand-300">{item.type}</span>
-                      <span className="mt-1 text-[0.9rem] leading-snug font-medium text-white">{item.title}</span>
-                      <span className="mt-1 text-caption text-brand-200/70">{item.forWhom}</span>
-                    </span>
+                    <span className="t-label mt-5 text-[0.6rem] text-brand-300">{item.type}</span>
+                    <span className="mt-1.5 text-[0.9rem] leading-snug font-medium text-white">{item.title}</span>
+                    <span className="mt-1.5 text-caption text-brand-200/70">{item.forWhom}</span>
                   </li>
                 ))}
               </ul>

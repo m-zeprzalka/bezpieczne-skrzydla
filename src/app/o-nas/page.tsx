@@ -130,8 +130,8 @@ export default function AboutPage() {
                 key={item.title}
                 className="grid grid-cols-1 gap-x-8 gap-y-3 border-b border-brand-200/80 py-9 md:grid-cols-12 lg:py-10"
               >
-                <div className="flex items-baseline gap-5 md:col-span-5">
-                  <span aria-hidden className="t-outline shrink-0 text-[1.4rem] leading-none select-none">
+                <div className="flex flex-col gap-3 md:col-span-5">
+                  <span aria-hidden className="t-outline text-[1.25rem] leading-none select-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="font-display text-[1.2rem] leading-[1.3] tracking-tight text-ink sm:text-[1.3rem]">{item.title}</h3>

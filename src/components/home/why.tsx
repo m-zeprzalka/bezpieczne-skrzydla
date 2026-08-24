@@ -24,20 +24,14 @@ export function WhyHome() {
 
             <RevealGroup as="ol" className={`${HEAD_GAP} border-t border-brand-200/80`}>
               {featured.map((item, i) => (
-                <RevealItem
-                  as="li"
-                  key={item.title}
-                  className="grid grid-cols-[2.75rem_1fr] gap-x-4 border-b border-brand-200/80 py-8"
-                >
-                  <span aria-hidden className="t-outline text-[1.4rem] leading-none select-none">
+                <RevealItem as="li" key={item.title} className="flex flex-col border-b border-brand-200/80 py-8">
+                  <span aria-hidden className="t-outline text-[1.25rem] leading-none select-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div>
-                    <h3 className="font-display text-[1.2rem] leading-[1.3] tracking-tight text-ink sm:text-[1.3rem]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 max-w-[34rem] text-small text-pretty text-ink-muted">{item.body}</p>
-                  </div>
+                  <h3 className="mt-4 font-display text-[1.2rem] leading-[1.3] tracking-tight text-ink sm:text-[1.3rem]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-[34rem] text-small text-pretty text-ink-muted">{item.body}</p>
                 </RevealItem>
               ))}
             </RevealGroup>

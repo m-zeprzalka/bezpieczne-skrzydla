@@ -148,8 +148,8 @@ export function DoDont({
 }) {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-      <div className="rounded-card border border-foundation-200 bg-foundation-50/60 p-5">
-        <p className="t-label flex items-center gap-2 text-foundation-700">
+      <div className="rounded-card border border-brand-200 bg-brand-50/70 p-5">
+        <p className="t-label flex items-center gap-2 text-brand-700">
           <Check className="size-3.5" aria-hidden />
           {goodLabel}
         </p>

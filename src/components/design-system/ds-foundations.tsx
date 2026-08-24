@@ -24,7 +24,6 @@ import {
 import {
   brandScale,
   breakpoints,
-  foundationScale,
   inkMuted,
   motion,
   radii,
@@ -150,7 +149,6 @@ const contrastPairs = [
   { label: "Jasny tekst na sekcji ciemnej", fg: brandScale[1].value, bg: brandScale[10].value, sample: "brand-100 na brand-950" },
   { label: "Akcent na sekcji ciemnej", fg: brandScale[3].value, bg: brandScale[10].value, sample: "brand-300 na brand-950" },
   { label: "Granat na przycisku odwróconym", fg: brandScale[10].value, bg: brandScale[4].value, sample: "brand-950 na brand-400" },
-  { label: "Tekst na Fundamencie", fg: foundationScale[4].value, bg: foundationScale[0].value, sample: "foundation-900 na 50" },
   { label: "Etykiety warsztatu", fg: sandScale[3].value, bg: sandScale[0].value, sample: "sand-700 na sand-50" },
 ];
 
@@ -171,26 +169,16 @@ export function DsColor() {
       </DsSub>
 
       <DsSub
-        title="Barwy towarzyszące"
-        text="Fundament (chłodna zieleń) i Warsztat (ciepły piasek) mają wyłącznie po jednym zadaniu. Nie używamy ich nigdzie indziej — właśnie dlatego działają jako sygnał."
+        title="Barwa towarzysząca"
+        text="Jedna: ciepły piasek warsztatu „przy kawie”. Ma jedno zadanie i nie pojawia się nigdzie indziej — dlatego działa jako sygnał. Poza nim cała strona żyje w błękitach; żadnej zieleni, pomarańczu ani czerwieni (poza komunikatem błędu)."
       >
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <div>
-            <p className="t-label mb-3 text-foundation-700">Fundament — warstwa prewencyjna</p>
-            <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {foundationScale.map((token) => (
-                <Swatch key={token.name} token={token} />
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="t-label mb-3 text-sand-700">Warsztat — jedyne ciepło na stronie</p>
-            <ul className="grid grid-cols-2 gap-3">
-              {sandScale.map((token) => (
-                <Swatch key={token.name} token={token} />
-              ))}
-            </ul>
-          </div>
+        <div>
+          <p className="t-label mb-3 text-sand-700">Warsztat — jedyne ciepło na stronie</p>
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {sandScale.map((token) => (
+              <Swatch key={token.name} token={token} />
+            ))}
+          </ul>
         </div>
       </DsSub>
 
@@ -218,7 +206,7 @@ export function DsColor() {
               </span>,
               <Code key="t">{pair.sample}</Code>,
               <span key="r" className="font-mono">{ratio.toFixed(2)}:1</span>,
-              <span key="w" className={cn("font-semibold", ratio >= 4.5 ? "text-foundation-700" : ratio >= 3 ? "text-sand-700" : "text-destructive")}>
+              <span key="w" className={cn("font-semibold", ratio >= 4.5 ? "text-brand-700" : ratio >= 3 ? "text-sand-700" : "text-destructive")}>
                 {wcagLevel(ratio, ratio < 4.5)}
               </span>,
             ];
@@ -232,14 +220,15 @@ export function DsColor() {
             <ul className="flex flex-col gap-2">
               <li>Jedna sekcja ciemna między dwiema jasnymi. Rytm: biel → tint → biel → deep → biel.</li>
               <li>Akcent koloru w nagłówku podkreśla jedno wyrażenie — to, które sprzedaje sekcję.</li>
-              <li>Zieleń Fundamentu i piasek Warsztatu pojawiają się wyłącznie przy tych dwóch tematach.</li>
-              <li>Gradienty (aurora) tylko jako poświata w tle, z kryciem 40–60 %.</li>
+              <li>Fundament pod etapami Modelu 4R wyróżnia granat (brand-900) — inna wysokość i ton, ten sam błękit.</li>
+              <li>Tło to powietrze: jedna miękka poświata u góry po prawej i spad do bieli, krycie 30–40 %.</li>
             </ul>
           }
           bad={
             <ul className="flex flex-col gap-2">
               <li>Dwie sekcje ciemne obok siebie — strona „gaśnie”, a CTA traci siłę.</li>
-              <li>Czerwień, pomarańcz, żółć jako kolory akcentu. Jedyna czerwień to komunikat błędu formularza.</li>
+              <li>Zieleń, czerwień, pomarańcz, żółć jako kolory akcentu. Jedyna czerwień to komunikat błędu formularza.</li>
+              <li>Kolorowe plamy i „blur-gradienty” w tle — czytają się jak tania grafika.</li>
               <li>Kolor jako jedyny nośnik informacji (np. „zielone = dobrze”) bez etykiety lub ikony.</li>
               <li>Tekst na gradiencie bez sprawdzenia kontrastu w najjaśniejszym punkcie.</li>
             </ul>
@@ -474,7 +463,7 @@ export function DsShape() {
             <div className="bg-grid mask-radial absolute inset-0 opacity-60" />
             <div className="relative h-16" />
           </Specimen>
-          <Specimen caption="bg-aurora · trzy poświaty, krycie 45–60 %" className="flex-col items-stretch">
+          <Specimen caption="bg-aurora · jedna poświata u góry po prawej + spad do bieli" className="flex-col items-stretch">
             <div className="bg-aurora h-16 rounded-card" />
           </Specimen>
         </div>
@@ -556,9 +545,9 @@ export function DsIcons() {
             </div>
           ))}
         </Specimen>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {(["tint", "outline", "solid", "inverse", "foundation", "sand"] as const).map((tone) => (
-            <div key={tone} className={cn("flex flex-col items-center gap-2 rounded-card border border-brand-200/80 p-4", tone === "inverse" && "bg-surface-deep")}>
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {(["tint", "outline", "solid", "inverse", "sand"] as const).map((tone) => (
+            <div key={tone} className={cn("flex flex-col items-center gap-2 rounded-card border border-brand-200/80 p-5", tone === "inverse" && "bg-surface-deep")}>
               <IconTile tone={tone}>
                 <Compass aria-hidden />
               </IconTile>

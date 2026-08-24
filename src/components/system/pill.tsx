@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
  * pastylki to przyciski `Button` albo chipsy formularza).
  */
 const pillVariants = cva(
-  "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[0.8rem] leading-snug font-medium whitespace-nowrap [&_svg]:size-3.5 [&_svg]:shrink-0",
+  "inline-flex max-w-full items-center gap-1.5 rounded-full border px-3 py-1 text-[0.8rem] leading-snug font-medium [&_svg]:size-3.5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -18,7 +18,6 @@ const pillVariants = cva(
         label:
           "t-label border-transparent bg-brand-700 px-3.5 py-1.5 text-white",
         "label-outline": "t-label border-brand-300 bg-white/80 px-3.5 py-1.5 text-brand-800",
-        foundation: "border-foundation-200 bg-foundation-50 text-foundation-900",
         sand: "border-sand-200 bg-sand-50 text-sand-700",
         inverse: "border-white/15 bg-white/10 text-brand-100",
       },

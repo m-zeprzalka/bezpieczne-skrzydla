@@ -11,7 +11,7 @@ export function IconTile({
 }: {
   children: React.ReactNode;
   className?: string;
-  tone?: "tint" | "outline" | "solid" | "inverse" | "foundation" | "sand";
+  tone?: "tint" | "outline" | "solid" | "inverse" | "sand";
   size?: "sm" | "md" | "lg";
 }) {
   return (
@@ -25,7 +25,6 @@ export function IconTile({
         tone === "outline" && "border border-brand-200 bg-white text-brand-700",
         tone === "solid" && "bg-brand-700 text-white",
         tone === "inverse" && "bg-white/10 text-brand-200",
-        tone === "foundation" && "bg-foundation-100 text-foundation-700",
         tone === "sand" && "bg-sand-100 text-sand-700",
         className,
       )}

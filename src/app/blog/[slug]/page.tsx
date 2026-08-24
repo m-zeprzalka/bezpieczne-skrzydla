@@ -144,7 +144,7 @@ export default async function PostPage({ params }: Props) {
               </Reveal>
             </div>
             <Reveal delay={0.22} className="mx-auto mt-14 max-w-[60rem]">
-              <PostCover post={post} large className="aspect-21/9 lg:aspect-21/9" />
+              <PostCover post={post} large priority className="aspect-16/9 sm:aspect-21/9" />
             </Reveal>
           </Container>
         </header>
