@@ -90,7 +90,7 @@ export function WingArcs({
               strokeWidth={i % 3 === 0 ? 1.6 : 1}
               initial={{ pathLength: 0, opacity: 0 }}
               whileInView={{ pathLength: 1, opacity: 1 }}
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: true, margin: "0px 0px 48px 0px" }}
               transition={{
                 duration: 1.6,
                 delay: 0.1 + (i % count) * 0.07,

@@ -184,8 +184,8 @@ export function SiteHeader() {
                             <ArrowRight
                               aria-hidden
                               className={cn(
-                                "size-5 shrink-0 transition-[transform,color] duration-300",
-                                active ? "text-brand-600" : "text-brand-300 group-hover:translate-x-1 group-hover:text-brand-600",
+                                "size-5 shrink-0 transition-colors duration-300",
+                                active ? "text-brand-600" : "text-brand-300 group-hover:text-brand-800",
                               )}
                             />
                           </Link>
@@ -213,13 +213,15 @@ export function SiteHeader() {
                     </a>
                   </Button>
                 </div>
-                <SocialLinks className="mt-6 [&_a]:size-10" />
-                <a
-                  href={`mailto:${site.email}`}
-                  className="focus-ring mt-4 inline-block rounded-sm text-[0.875rem] font-medium break-all text-brand-800 hover:text-brand-600"
-                >
-                  {site.email}
-                </a>
+                <div className="mt-6 flex flex-col items-center gap-4">
+                  <SocialLinks className="justify-center [&_a]:size-10" />
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="focus-ring rounded-sm text-center text-[0.875rem] font-medium break-all text-brand-800 hover:text-brand-600"
+                  >
+                    {site.email}
+                  </a>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

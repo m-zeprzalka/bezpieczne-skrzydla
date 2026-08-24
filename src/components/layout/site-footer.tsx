@@ -4,17 +4,15 @@ import { Mail, Phone } from "lucide-react";
 import { BrandMark } from "@/components/system/brand-mark";
 import { Container } from "@/components/system/container";
 import { SocialLinks } from "@/components/system/social-icons";
-import { WingRule } from "@/components/system/wing-arcs";
 import { footer, site } from "@/content/site";
 
-/** Stopka: marka, kolumny odnośników, kontakt, dane rejestrowe i dokumenty. */
+/** Stopka: marka, kolumny odnośników, kontakt, dane rejestrowe i dokumenty. Bez ornamentów. */
 export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-brand-100 bg-surface-tint">
       <Container className="py-20 md:py-24">
-        <WingRule className="mb-16" />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12">
           <div className="md:col-span-4">

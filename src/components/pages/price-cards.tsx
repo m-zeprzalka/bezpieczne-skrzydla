@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Award, Check } from "lucide-react";
 
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/reveal";
 import { WingArcs } from "@/components/system/wing-arcs";
@@ -34,7 +34,7 @@ export function PriceCards({ showIncludes = false, className }: { showIncludes?:
           <div className="relative grid grid-cols-1 gap-x-10 gap-y-8 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8">
               <span className="t-label inline-flex items-center gap-2 rounded-full bg-brand-700 px-4 py-1.5 text-white">
-                <Sparkles className="size-3.5" aria-hidden />
+                <Award className="size-3.5" aria-hidden />
                 {flagship.badge}
               </span>
               <h3 className="mt-6 font-display text-[1.7rem] leading-[1.1] tracking-tight text-ink sm:text-[2rem]">

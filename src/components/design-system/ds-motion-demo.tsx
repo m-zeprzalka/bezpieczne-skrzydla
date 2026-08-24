@@ -20,9 +20,9 @@ export function MotionDemo() {
           </p>
         </div>
         <div>
-          <p className="t-label text-brand-600">Reveal · 16 px w górę + krycie, 700 ms</p>
+          <p className="t-label text-brand-600">Reveal · 16 px w górę + krycie, 600 ms</p>
           <Reveal className="mt-3 rounded-card border border-brand-200/80 bg-surface-tint p-5 text-body-sm text-brand-900/85">
-            Pojedynczy blok treści wchodzi, gdy znajdzie się 64 px nad dolną krawędzią okna. Raz — nie powtarza się przy przewijaniu w górę.
+            Pojedynczy blok treści wchodzi 48 px zanim pojawi się w kadrze. Raz — nie powtarza się przy przewijaniu w górę.
           </Reveal>
         </div>
         <div>

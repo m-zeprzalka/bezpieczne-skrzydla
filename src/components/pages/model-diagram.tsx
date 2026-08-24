@@ -18,7 +18,7 @@ export function ModelDiagram({ compact = false, className }: { compact?: boolean
 
   return (
     <div className={cn("", className)}>
-      <Reveal as="p" className="t-label text-brand-600">
+      <Reveal as="p" className="t-label text-center text-brand-600 sm:text-left">
         {model4r.stepsCaption}
       </Reveal>
 
@@ -62,7 +62,7 @@ export function ModelDiagram({ compact = false, className }: { compact?: boolean
         <Reveal delay={0.05} className="flex h-16 items-center justify-center gap-3">
           <span aria-hidden className="flex h-full flex-col items-center">
             <ArrowUp className="-mb-1 size-4 text-brand-600" />
-            <span className="w-px flex-1 bg-brand-400" />
+            <span className="flex-1 border-l border-dashed border-brand-400" />
           </span>
           <span className="text-[0.8rem] font-semibold text-brand-800">
             {foundation.arrowUp.label}

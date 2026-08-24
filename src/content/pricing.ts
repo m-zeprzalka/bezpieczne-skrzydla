@@ -1,13 +1,14 @@
 /**
- * Cennik — celowo prosty, z maila klientki (3.08.2026).
+ * Cennik z maila klientki (3.08.2026). Nagłówek „prosty i przejrzysty”
+ * (decyzja Michała, 24.08.2026 — zamiast „celowo prosty”).
  * Przy kwotach NIE piszemy „netto”: podana kwota jest kwotą do zapłaty.
  * Każdy przycisk prowadzi do formularza wyceny, nie do koszyka.
  */
 
 export const pricing = {
   label: "Cennik",
-  title: "Cennik — celowo prosty",
-  lead: "Celowo prosty. Podana kwota jest kwotą do zapłaty — nie doliczam VAT i nie piszę gwiazdek.",
+  title: "Cennik — prosty i przejrzysty",
+  lead: "Podana kwota jest kwotą do zapłaty — nie doliczam VAT i nie piszę gwiazdek.",
   cta: "Poproś o wycenę",
   flagship: {
     id: "bezpieczna-firma",

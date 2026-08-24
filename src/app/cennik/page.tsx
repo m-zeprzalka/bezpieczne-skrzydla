@@ -36,7 +36,7 @@ export default function PricingPage() {
         crumbs={[{ label: "Strona główna", href: "/" }, { label: "Cennik" }]}
         label={pricing.label}
         title="Cennik —"
-        accent="celowo prosty"
+        accent="prosty i przejrzysty"
         lead={pricing.lead}
       />
 

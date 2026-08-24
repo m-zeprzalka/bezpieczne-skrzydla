@@ -127,7 +127,7 @@ export function DsComponents() {
             <SectionHead index="02" label="Oferta · Szkolenia" title="Pięć szkoleń, każde dla innej" accent="roli w organizacji" lead="Każde szkolenie ma formę nagranego kursu online." />
           </Specimen>
           <Specimen tone="dark" className="flex-col items-stretch">
-            <SectionHead label="Cennik" title="Cennik —" accent="celowo prosty" lead="Podana kwota jest kwotą do zapłaty." tone="dark" align="center" />
+            <SectionHead label="Cennik" title="Cennik —" accent="prosty i przejrzysty" lead="Podana kwota jest kwotą do zapłaty." tone="dark" align="center" />
           </Specimen>
         </div>
       </DsSub>

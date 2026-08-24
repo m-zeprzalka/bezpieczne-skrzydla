@@ -17,14 +17,16 @@ const statIcons = {
 /**
  * Sekcja powitalna — treść klientki 1:1. Akcent i lead bez kursywy
  * (wyróżnia je krój i kolor). Ścieżka odbiorców to cztery odnośniki do
- * szkoleń. Pod spodem cztery fakty w jednej cichej linii — bez ramek.
+ * szkoleń. Kadr autorki zaczyna się od górnej krawędzi sekcji i na desktopie
+ * jest przyklejony, gdy kolumna tekstu jest wyższa. Pod spodem cztery fakty
+ * w jednej cichej linii — bez ramek.
  */
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div aria-hidden className="bg-aurora absolute inset-x-0 top-0 -z-10 h-[640px] opacity-60" />
 
-      <Container className="grid grid-cols-1 items-center gap-x-12 gap-y-16 pt-16 pb-20 sm:pt-20 md:grid-cols-12 lg:pt-28 lg:pb-28">
+      <Container className="grid grid-cols-1 items-start gap-x-12 gap-y-16 pt-16 pb-20 sm:pt-20 md:grid-cols-12 lg:pt-24 lg:pb-28">
         <div className="md:col-span-7 lg:pr-10">
           <h1 className="text-display text-ink">
             <RevealWords text={hero.titleA} /> <RevealWords text={hero.titleB} delay={0.24} />{" "}
@@ -82,8 +84,9 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <div className="md:col-span-5">
-          <Reveal delay={0.3} y={24} className="mx-auto max-w-[22rem] lg:ml-auto lg:max-w-[24rem]">
+        <div className="md:col-span-5 md:self-stretch">
+          {/* od górnej krawędzi sekcji; na desktopie zostaje w kadrze podczas przewijania kolumny tekstu */}
+          <Reveal delay={0.3} y={24} className="mx-auto max-w-[22rem] md:sticky md:top-24 lg:ml-auto lg:max-w-[24rem]">
             <AuthorPortrait preload />
           </Reveal>
         </div>

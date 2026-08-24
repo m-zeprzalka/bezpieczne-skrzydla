@@ -93,7 +93,7 @@ export const motion = [
   ["150 ms", "linear / ease", "zmiana koloru, obrysu"],
   ["300 ms", "ease-out-expo", "przesunięcie strzałki, tło przycisku"],
   ["500 ms", "ease-out-expo", "uniesienie karty o 2 px, chowanie nagłówka"],
-  ["700 ms", "ease-out-expo", "wejście sekcji (Reveal) — 16 px w górę + krycie"],
+  ["600 ms", "ease-out-expo", "wejście sekcji (Reveal) — 16 px w górę + krycie, 48 px przed kadrem"],
   ["850 ms", "ease-out-expo", "słowa nagłówka H1 (maska, 40 ms odstępu)"],
   ["48 s", "linear, w pętli", "pasek haseł (marquee)"],
 ] as const;

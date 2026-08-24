@@ -16,7 +16,7 @@ export function PricingHome() {
           index="04"
           label={pricing.label}
           title="Cennik —"
-          accent="celowo prosty"
+          accent="prosty i przejrzysty"
           lead={pricing.lead}
           tone="dark"
           align="center"

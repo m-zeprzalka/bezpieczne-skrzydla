@@ -33,7 +33,7 @@ export function KnowledgeHome() {
         </RevealGroup>
 
         <Reveal className="mt-20 lg:mt-24">
-          <div className="relative overflow-hidden rounded-panel bg-surface-deep p-8 text-brand-100 sm:p-10 lg:p-14">
+          <div className="relative overflow-hidden rounded-panel bg-surface-deep p-8 text-brand-100 sm:p-10 lg:p-12">
             <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-40" />
             <WingArcs tone="dark" animate={false} className="absolute -right-32 -bottom-40 w-[640px] opacity-[0.12]" count={9} />
             <div className="relative grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-center">

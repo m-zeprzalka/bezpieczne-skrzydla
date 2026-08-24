@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Coffee } from "lucide-react";
 
-import { Pill } from "@/components/system/pill";
 import type { Training } from "@/content/trainings";
 import { workshop } from "@/content/workshop";
 import { cn } from "@/lib/utils";
@@ -34,24 +33,28 @@ export function TrainingCard({ training, className }: { training: Training; clas
   );
 }
 
-/** Karta warsztatu — ciepły ton, plakietka „To warsztat, nie szkolenie”. */
+/**
+ * Karta warsztatu — ta sama anatomia co karta szkolenia (etykieta, tytuł,
+ * odbiorca, opis, stopka), ale etykieta „Warsztat 06” i ciepły akcent
+ * mówią, że to nie jest szóste szkolenie.
+ */
 export function WorkshopCard({ className }: { className?: string }) {
   return (
     <Link
       href="/warsztat"
       className={cn(
-        "card-lift focus-ring group relative flex h-full min-w-0 flex-col rounded-card border border-sand-200 bg-sand-50 p-7 sm:p-8",
+        "card-lift focus-ring group relative flex h-full min-w-0 flex-col rounded-card border border-sand-200 bg-white p-7 sm:p-8",
         className,
       )}
     >
-      <Pill variant="label-outline" className="w-fit border-sand-200 bg-white/80 text-center text-sand-700">
-        <Coffee />
-        {workshop.badge}
-      </Pill>
-      <h3 className="mt-6 font-display text-[1.25rem] leading-[1.25] tracking-tight text-ink transition-colors group-hover:text-sand-700 sm:text-[1.35rem]">
+      <span className="t-label flex items-center gap-2 text-sand-700">
+        <Coffee className="size-3.5" aria-hidden />
+        Warsztat 06
+      </span>
+      <h3 className="mt-5 font-display text-[1.25rem] leading-[1.25] tracking-tight text-ink transition-colors group-hover:text-sand-700 sm:text-[1.35rem]">
         {workshop.title}
       </h3>
-      <p className="mt-3 text-caption font-medium text-sand-700">{workshop.label}</p>
+      <p className="mt-3 text-caption font-medium text-sand-700">{workshop.label} · {workshop.badge.toLowerCase()}</p>
       <p className="mt-5 flex-1 text-small text-pretty text-ink-muted">{workshop.subtitle}</p>
       <span className="mt-8 flex items-center justify-between border-t border-sand-200 pt-5">
         <span className="text-caption text-ink-muted">bez testu i certyfikatu</span>

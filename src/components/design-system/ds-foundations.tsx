@@ -492,7 +492,7 @@ export function DsMotion() {
         <DoDont
           good={
             <ul className="flex flex-col gap-2">
-              <li>Wejścia sekcji z <Code>Reveal</Code> — jednokrotne, wyzwalane 64 px przed dolną krawędzią okna.</li>
+              <li>Wejścia sekcji z <Code>Reveal</Code> — jednokrotne, wyzwalane 48 px zanim blok wejdzie w kadr (600 ms).</li>
               <li>Mikrointerakcje: strzałka przesuwa się o 2 px, karta unosi o 4 px, linia pod odnośnikiem rośnie od lewej.</li>
               <li>Nagłówek chowa się przy przewijaniu w dół i wraca przy ruchu w górę — więcej miejsca na treść na telefonie.</li>
               <li>Identyczne drzewo DOM po stronie serwera i klienta; preferencja ruchu obsługiwana w CSS i <Code>MotionConfig</Code>.</li>
@@ -557,7 +557,7 @@ export function DsIcons() {
         </div>
       </DsSub>
 
-      <DsSub title="Znaki marki" text="Sygnet zawsze w kole z włoskowym pierścieniem. Skrzydło z linii wyłącznie jako tło z kryciem 15–40 %. Ornament rozdziela bloki w stopce i na końcu długich sekcji.">
+      <DsSub title="Znaki marki" text="Sygnet zawsze w kole z włoskowym pierścieniem. Skrzydło z linii wyłącznie jako tło z kryciem 15–40 %. Ornament WingRule zostaje w bibliotece, ale nie jest używany w layoucie — separatory to włoskowe linie.">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Specimen caption="BrandMark · sygnet 40 px + logotyp Fraunces + podpis" align="center">
             <span className="flex items-center gap-3">

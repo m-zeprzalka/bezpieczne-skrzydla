@@ -50,7 +50,11 @@ const MOTION_TAGS: Record<Tag, React.ElementType> = {
  * Dzięki temu nie ma rozjazdu SSR/CSR, który wcześniej psuł hydratację.
  */
 
-/** Pojedyncze wejście: delikatne uniesienie + rozjaśnienie. */
+/**
+ * Pojedyncze wejście: delikatne uniesienie + rozjaśnienie.
+ * Wyzwalane 48 px zanim element wejdzie w kadr — blok jest gotowy, gdy
+ * użytkownik do niego dojeżdża, a nie chwilę po.
+ */
 export function Reveal({
   children,
   className,
@@ -67,8 +71,8 @@ export function Reveal({
       className={cn(className)}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-64px 0px" }}
-      transition={{ duration: 0.7, delay, ease: EASE }}
+      viewport={{ once: true, margin: "0px 0px 48px 0px" }}
+      transition={{ duration: 0.6, delay, ease: EASE }}
       {...props}
     >
       {children}
@@ -78,12 +82,12 @@ export function Reveal({
 
 const staggerParent: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
+  show: { transition: { staggerChildren: 0.07, delayChildren: 0.02 } },
 };
 
 const staggerChild: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
 };
 
 /** Kontener dla list i siatek — dzieci wchodzą kaskadowo. */
@@ -102,7 +106,7 @@ export function RevealGroup({
       variants={staggerParent}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-48px 0px" }}
+      viewport={{ once: true, margin: "0px 0px 48px 0px" }}
       {...props}
     >
       {children}
