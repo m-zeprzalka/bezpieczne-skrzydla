@@ -9,6 +9,8 @@
  * do uzupełnienia: `deliver()` poniżej.
  */
 
+import { quoteForm } from "@/content/contact";
+
 export type QuoteState = {
   status: "idle" | "success" | "error";
   errors?: Partial<Record<"name" | "email" | "form", string>>;
@@ -43,10 +45,10 @@ export async function submitQuote(
 
   const errors: QuoteState["errors"] = {};
   if (!values.name || values.name.length < 2) {
-    errors.name = "Podaj imię lub nazwę organizacji.";
+    errors.name = quoteForm.errors.name;
   }
   if (!values.email || !EMAIL_RE.test(values.email)) {
-    errors.email = "Podaj adres e-mail, na który mam odpisać.";
+    errors.email = quoteForm.errors.email;
   }
   if (Object.keys(errors).length > 0) {
     return { status: "error", errors, values };
@@ -58,9 +60,7 @@ export async function submitQuote(
   } catch {
     return {
       status: "error",
-      errors: {
-        form: "Nie udało się wysłać zapytania. Spróbuj ponownie albo napisz bezpośrednio na adres e-mail.",
-      },
+      errors: { form: quoteForm.errors.generic },
       values,
     };
   }

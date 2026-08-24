@@ -136,7 +136,8 @@ export function RevealItem({
 
 /**
  * Nagłówek pojawiający się słowo po słowie (maska + przesunięcie).
- * Pełny tekst zostaje dla czytników w `aria-label`; słowa są `aria-hidden`.
+ * Komponent jest czysto wizualny: rodzic podaje pełny tekst czytnikom
+ * (np. `sr-only` w H1) i oznacza animowaną kopię `aria-hidden`.
  */
 export function RevealWords({
   text,
@@ -152,8 +153,6 @@ export function RevealWords({
   return (
     <motion.span
       className={cn("inline", className)}
-      aria-label={text}
-      role="text"
       initial="hidden"
       animate="show"
       variants={{
@@ -169,7 +168,6 @@ export function RevealWords({
           className="-mb-[0.24em] inline-block overflow-hidden pb-[0.24em] align-bottom"
         >
           <motion.span
-            aria-hidden
             data-reveal=""
             className="inline-block"
             variants={{

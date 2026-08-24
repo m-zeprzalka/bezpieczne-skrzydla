@@ -22,11 +22,6 @@ export const hero = {
       href: "/szkolenia/komisja-antymobbingowa",
     },
   ],
-  chips: [
-    { title: "Autorska metoda", text: "Model 4R z Fundamentem" },
-    { title: "Kurs online", text: "od 299 zł · dostęp 60 dni" },
-    { title: "Na życzenie", text: "szkolenie stacjonarne" },
-  ],
 } as const;
 
 export const heroStats = [

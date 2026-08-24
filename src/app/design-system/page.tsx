@@ -47,7 +47,6 @@ export default function DesignSystemPage() {
     <>
       <header className="relative overflow-hidden border-b border-brand-100 bg-white">
         <div aria-hidden className="bg-aurora absolute inset-x-0 top-0 h-[420px] opacity-40" />
-        <div aria-hidden className="bg-grid mask-radial absolute inset-0 opacity-30" />
         <Container className="relative py-14 sm:py-20">
           <div className="flex flex-wrap items-center gap-3">
             <Pill variant="solid">Design system</Pill>

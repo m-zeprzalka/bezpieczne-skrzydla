@@ -11,17 +11,13 @@ import { cn } from "@/lib/utils";
  */
 export function AuthorPortrait({
   className,
-  tone = "light",
   caption = true,
   preload = false,
 }: {
   className?: string;
-  tone?: "light" | "dark";
   caption?: boolean;
   preload?: boolean;
 }) {
-  const dark = tone === "dark";
-
   if (site.authorPhoto) {
     return (
       <figure
@@ -57,20 +53,18 @@ export function AuthorPortrait({
   return (
     <figure
       className={cn(
-        "relative aspect-4/5 overflow-hidden rounded-panel border",
-        dark ? "border-white/10 bg-brand-900/60" : "border-brand-200/80 bg-white shadow-lift",
+        "relative aspect-4/5 overflow-hidden rounded-panel border border-brand-200/80 bg-white shadow-lift",
         className,
       )}
     >
-      <div aria-hidden className={cn("absolute inset-0", dark ? "bg-aurora-deep opacity-70" : "bg-aurora opacity-70")} />
+      <div aria-hidden className="bg-aurora absolute inset-0 opacity-70" />
       <WingArcs
         animate={false}
-        tone={tone}
         className="absolute -bottom-14 left-1/2 w-[480px] max-w-none -translate-x-1/2 opacity-30"
         count={9}
       />
       <div className="relative flex h-full flex-col items-center justify-center gap-6 p-8 text-center">
-        <span className={cn("relative grid place-items-center rounded-full", dark ? "ring-1 ring-white/15" : "ring-1 ring-brand-200")}>
+        <span className="relative grid place-items-center rounded-full ring-1 ring-brand-200">
           <Image
             src="/logo-bezpieczne-skrzydla.png"
             alt=""
@@ -82,8 +76,8 @@ export function AuthorPortrait({
         </span>
         {caption ? (
           <figcaption>
-            <p className={cn("font-display text-[1.2rem]", dark ? "text-white" : "text-ink")}>{site.owner}</p>
-            <p className={cn("t-label mt-2", dark ? "text-brand-300" : "text-brand-600")}>{site.ownerRole}</p>
+            <p className="font-display text-[1.2rem] text-ink">{site.owner}</p>
+            <p className="t-label mt-2 text-brand-600">{site.ownerRole}</p>
           </figcaption>
         ) : null}
       </div>

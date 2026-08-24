@@ -18,7 +18,7 @@ export function ModelDiagram({ compact = false, className }: { compact?: boolean
 
   return (
     <div className={cn("", className)}>
-      <Reveal as="p" className="t-label text-center text-brand-600 sm:text-left">
+      <Reveal as="p" className="t-label text-center text-brand-600">
         {model4r.stepsCaption}
       </Reveal>
 

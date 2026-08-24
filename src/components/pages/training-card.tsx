@@ -48,8 +48,8 @@ export function WorkshopCard({ className }: { className?: string }) {
       )}
     >
       <span className="t-label flex items-center gap-2 text-sand-700">
-        <Coffee className="size-3.5" aria-hidden />
-        Warsztat 06
+        <Coffee className="size-3.5 translate-y-px" aria-hidden />
+        <span>Warsztat 06</span>
       </span>
       <h3 className="mt-5 font-display text-[1.25rem] leading-[1.25] tracking-tight text-ink transition-colors group-hover:text-sand-700 sm:text-[1.35rem]">
         {workshop.title}

@@ -105,24 +105,3 @@ export function WingArcs({
     </svg>
   );
 }
-
-/** Wąski, poziomy ornament — rozdziela bloki bez ciężkiej kreski. */
-export function WingRule({ className }: { className?: string }) {
-  return (
-    <div
-      aria-hidden
-      className={cn("flex items-center justify-center gap-3", className)}
-    >
-      <span className="rule-gradient h-px w-16 sm:w-28" />
-      <svg viewBox="0 0 24 24" fill="none" className="size-3.5 text-brand-400">
-        <path
-          d="M12 3.5c-2.6 3.4-5.8 5.3-9 5.9 3.2 2.3 6.4 5.4 9 11.1 2.6-5.7 5.8-8.8 9-11.1-3.2-.6-6.4-2.5-9-5.9Z"
-          stroke="currentColor"
-          strokeWidth="1.3"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <span className="rule-gradient h-px w-16 sm:w-28" />
-    </div>
-  );
-}

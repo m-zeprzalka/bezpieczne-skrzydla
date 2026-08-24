@@ -209,8 +209,8 @@ export function DsEngineering() {
           rows={[
             [<Code key="1">src/app/globals.css</Code>, "wszystkie tokeny (@theme), warstwy base / components / utilities — jedno źródło prawdy dla przeglądarki"],
             [<Code key="2">src/components/design-system/tokens.ts</Code>, "lustro tokenów dla tej dokumentacji (tabele, kontrast)"],
-            [<Code key="3">src/components/system/</Code>, "prymitywy: Container, Section, SectionHead, Reveal, Pill, ArrowLink, IconTile, PageHero, CtaBand, WingArcs, BrandMark"],
-            [<Code key="4">src/components/ui/</Code>, "shadcn (Button z wariantami marki, Input, Textarea, Accordion, Sheet)"],
+            [<Code key="3">src/components/system/</Code>, "prymitywy: Container, Section, SectionHead, Reveal, Pill, ArrowLink, IconTile, PageHero, CtaBand, WingArcs, BrandMark, AuthorPortrait, Marquee"],
+            [<Code key="4">src/components/ui/</Code>, "shadcn — tylko to, co w użyciu: Button z wariantami marki, Input, Textarea, Accordion, Sheet, Spinner"],
             [<Code key="5">src/components/pages/</Code>, "bloki współdzielone między trasami: ModelDiagram, TrainingCard, PriceCards, FaqList, PostCard"],
             [<Code key="6">src/components/home/</Code>, "sekcje strony głównej w kolejności lejka"],
             [<Code key="7">src/components/forms/</Code>, "formularze (klient) i akcje serwerowe z walidacją"],

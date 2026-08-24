@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import { interestByTopic, quoteForm } from "@/content/contact";
+import { contact, interestByTopic, quoteForm } from "@/content/contact";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -205,7 +205,7 @@ export function QuoteForm({ className }: { className?: string }) {
           {pending ? <Spinner data-icon="inline-start" /> : <Send data-icon="inline-start" />}
           {pending ? quoteForm.submitting : quoteForm.submit}
         </Button>
-        <p className="text-caption text-ink-muted">Dane wykorzystam wyłącznie do odpowiedzi na to zapytanie.</p>
+        <p className="text-caption text-ink-muted">{contact.privacyNote}</p>
       </div>
     </form>
   );

@@ -45,8 +45,10 @@ src/
   content/                  cała treść witryny — bez JSX, gotowa do CMS
   components/
     system/                 prymitywy: Container, Section, SectionHead, Reveal,
-                            Pill, ArrowLink, IconTile, PageHero, CtaBand, WingArcs…
-    ui/                     shadcn/ui (Button z wariantami marki, Input, Accordion…)
+                            Pill, ArrowLink, IconTile, PageHero, CtaBand, WingArcs,
+                            AuthorPortrait, Marquee, Breadcrumbs, BrandMark
+    ui/                     shadcn/ui — tylko używane: Button (warianty marki),
+                            Input, Textarea, Accordion, Sheet, Spinner
     pages/                  bloki współdzielone między trasami
     home/                   sekcje strony głównej
     forms/                  formularze (klient) + akcje serwerowe
@@ -54,6 +56,18 @@ src/
     design-system/          strona /design-system
   lib/                      utils (cn z rozszerzonym tailwind-merge), seo, format, color
 ```
+
+## Zasady projektowe (skrót — pełne w `/design-system`)
+
+- Jedna rodzina błękitów z logo + piasek warsztatu. **Zero zieleni**, zero
+  kolorowych plam w tle (`bg-aurora` = jedna poświata i spad do bieli).
+- Skala typografii płynna (`text-display` … `text-caption`), etykiety `t-label`.
+- Rytm: sekcje 96 / 128 / 160 px, nagłówek → treść `HEAD_GAP` (64 / 80 px),
+  siatki 24–32 px, karty p-7/8, panele lg:p-12.
+- Karty: włoskowa ramka, bez cienia w spoczynku, uniesienie 2 px pod kursorem.
+- Jeden przycisk główny na widok („Poproś o wycenę”), drugi poziom to `ArrowLink`.
+- Mobile-first, sprawdzane na 320 / 360 / 390 / 768 / 1440 px; zero poziomego
+  przepełnienia.
 
 ## Zasady, których łatwo nie dopilnować
 
@@ -69,7 +83,9 @@ klientki z 3.08.2026):
 
 ## Przed publikacją
 
-1. Zdjęcie autorki — ścieżka w `src/content/site.ts` → `authorPhoto`.
+1. Zdjęcie autorki (`public/mj.jpg`) i okładki bloga (`public/blog/`, stock
+   Lorem Picsum) — placeholdery do podmiany; ścieżki w `src/content/site.ts`
+   i `src/content/blog.ts`.
 2. Dostarczanie formularzy — `deliver()` w `src/components/forms/actions.ts`
    (obecnie zgłoszenia trafiają do logów serwera). Do podpięcia: dostawca poczty
    lub CRM.

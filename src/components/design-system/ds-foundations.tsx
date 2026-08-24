@@ -36,7 +36,7 @@ import {
   type ColorToken,
 } from "@/components/design-system/tokens";
 import { IconTile } from "@/components/system/icon-tile";
-import { WingArcs, WingRule } from "@/components/system/wing-arcs";
+import { WingArcs } from "@/components/system/wing-arcs";
 import { contrast, oklchToRgb, toHex, wcagLevel } from "@/lib/color";
 import { cn } from "@/lib/utils";
 
@@ -440,7 +440,7 @@ export function DsShape() {
       </DsSub>
 
       <DsSub title="Elewacja" text="Cienie są barwione granatem marki (nie czernią), więc na błękitnych tłach nie brudzą.">
-        <div className="grid grid-cols-1 gap-4 rounded-card bg-surface-tint p-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 rounded-card bg-surface-tint p-6 sm:grid-cols-2">
           {shadows.map(([name, value, use]) => (
             <div key={name} className="flex flex-col gap-4">
               <div className={cn("h-24 rounded-card bg-white", name)} />
@@ -455,13 +455,9 @@ export function DsShape() {
       </DsSub>
 
       <DsSub title="Linie i tła pomocnicze">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Specimen caption="border-line · 1 px, brand-200 z kryciem 80 %" className="flex-col items-stretch">
             <div className="h-16 rounded-card border border-brand-200/80 bg-white" />
-          </Specimen>
-          <Specimen caption="bg-grid · 72 px, maskowane radialnie" className="relative flex-col items-stretch overflow-hidden">
-            <div className="bg-grid mask-radial absolute inset-0 opacity-60" />
-            <div className="relative h-16" />
           </Specimen>
           <Specimen caption="bg-aurora · jedna poświata u góry po prawej + spad do bieli" className="flex-col items-stretch">
             <div className="bg-aurora h-16 rounded-card" />
@@ -557,8 +553,8 @@ export function DsIcons() {
         </div>
       </DsSub>
 
-      <DsSub title="Znaki marki" text="Sygnet zawsze w kole z włoskowym pierścieniem. Skrzydło z linii wyłącznie jako tło z kryciem 15–40 %. Ornament WingRule zostaje w bibliotece, ale nie jest używany w layoucie — separatory to włoskowe linie.">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <DsSub title="Znaki marki" text="Sygnet zawsze w kole z włoskowym pierścieniem. Skrzydło z linii wyłącznie jako tło z kryciem 15–40 %. Separatory to włoskowe linie — bez ornamentów.">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Specimen caption="BrandMark · sygnet 40 px + logotyp Fraunces + podpis" align="center">
             <span className="flex items-center gap-3">
               <span className="relative size-11 overflow-hidden rounded-full ring-1 ring-brand-200/80">
@@ -572,9 +568,6 @@ export function DsIcons() {
           </Specimen>
           <Specimen caption="WingArcs · 2 × 9 łuków, gradient kreski, tylko w tle" tone="dark" align="center" className="relative min-h-40 overflow-hidden">
             <WingArcs tone="dark" animate={false} className="absolute -bottom-10 left-1/2 w-[120%] -translate-x-1/2 opacity-60" />
-          </Specimen>
-          <Specimen caption="WingRule · ornament rozdzielający" align="center" className="min-h-40">
-            <WingRule />
           </Specimen>
         </div>
       </DsSub>

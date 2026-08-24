@@ -17,23 +17,28 @@ const statIcons = {
 /**
  * Sekcja powitalna — treść klientki 1:1. Akcent i lead bez kursywy
  * (wyróżnia je krój i kolor). Ścieżka odbiorców to cztery odnośniki do
- * szkoleń. Kadr autorki zaczyna się od górnej krawędzi sekcji i na desktopie
- * jest przyklejony, gdy kolumna tekstu jest wyższa. Pod spodem cztery fakty
- * w jednej cichej linii — bez ramek.
+ * szkoleń; pod nimi cztery fakty 2×2. Kadr autorki zaczyna się od górnej
+ * krawędzi sekcji i na desktopie jest przyklejony przez całą wysokość obu
+ * wierszy siatki (żaden przodek nie ma overflow-hidden — to warunek sticky).
  */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative bg-white">
       <div aria-hidden className="bg-aurora absolute inset-x-0 top-0 -z-10 h-[640px] opacity-60" />
 
-      <Container className="grid grid-cols-1 items-start gap-x-12 gap-y-16 pt-16 pb-20 sm:pt-20 md:grid-cols-12 lg:pt-24 lg:pb-28">
-        <div className="md:col-span-7 lg:pr-10">
+      <Container className="grid grid-cols-1 items-start gap-x-12 gap-y-16 pt-16 pb-24 sm:pt-20 md:grid-cols-12 lg:pt-24 lg:pb-32">
+        <div className="order-1 md:order-none md:col-span-7 lg:pr-10">
           <h1 className="text-display text-ink">
-            <RevealWords text={hero.titleA} /> <RevealWords text={hero.titleB} delay={0.24} />{" "}
-            <span className="text-brand-600">
-              <RevealWords text={hero.titleAccent} delay={0.3} />
-            </span>{" "}
-            <RevealWords text={hero.titleC} delay={0.42} />
+            <span className="sr-only">
+              {hero.titleA} {hero.titleB} {hero.titleAccent} {hero.titleC}
+            </span>
+            <span aria-hidden>
+              <RevealWords text={hero.titleA} /> <RevealWords text={hero.titleB} delay={0.24} />{" "}
+              <span className="text-brand-600">
+                <RevealWords text={hero.titleAccent} delay={0.3} />
+              </span>{" "}
+              <RevealWords text={hero.titleC} delay={0.42} />
+            </span>
           </h1>
 
           <Reveal
@@ -84,19 +89,24 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <div className="md:col-span-5 md:self-stretch">
-          {/* od górnej krawędzi sekcji; na desktopie zostaje w kadrze podczas przewijania kolumny tekstu */}
-          <Reveal delay={0.3} y={24} className="mx-auto max-w-[22rem] md:sticky md:top-24 lg:ml-auto lg:max-w-[24rem]">
-            <AuthorPortrait preload />
-          </Reveal>
+        {/*
+         * Kadr od górnej krawędzi sekcji, rozpięty na oba wiersze siatki (tekst
+         * i fakty), więc na desktopie ma po czym się przykleić. Sticky działa
+         * tylko wtedy, gdy żaden przodek nie ma overflow-hidden — dlatego
+         * sekcja hero go nie ma. Na mobile kolejność: tekst → kadr → fakty.
+         */}
+        <div className="order-2 md:order-none md:col-span-5 md:col-start-8 md:row-span-2 md:self-stretch">
+          <div className="md:sticky md:top-24">
+            <Reveal delay={0.3} y={24} className="mx-auto max-w-[22rem] lg:ml-auto lg:max-w-[24rem]">
+              <AuthorPortrait preload />
+            </Reveal>
+          </div>
         </div>
-      </Container>
 
-      {/* — cztery fakty w jednej linii — */}
-      <Container className="pb-20 lg:pb-24">
+        {/* — cztery fakty 2×2 pod tekstem (desktop) / pod kadrem (mobile) — */}
         <RevealGroup
           as="ul"
-          className="grid grid-cols-1 gap-y-8 border-t border-brand-200/80 pt-10 min-[480px]:grid-cols-2 lg:grid-cols-4 lg:gap-x-10"
+          className="order-3 grid grid-cols-1 gap-x-10 gap-y-8 border-t border-brand-200/80 pt-10 min-[480px]:grid-cols-2 md:order-none md:col-span-7"
         >
           {heroStats.map((stat) => {
             const Icon = statIcons[stat.icon];
@@ -112,6 +122,7 @@ export function Hero() {
           })}
         </RevealGroup>
       </Container>
+
     </section>
   );
 }

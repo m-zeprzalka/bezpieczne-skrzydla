@@ -83,10 +83,8 @@ export const radii = [
 ] as const;
 
 export const shadows = [
-  ["shadow-hairline", "obrys 1 px z krycia 8 % granatu", "alternatywa dla obramowania na zdjęciach"],
   ["shadow-lift", "0 1 2 / 0 10 28 · 6 % / 14 %", "karta pod kursorem, kadr autorki"],
   ["shadow-lift-lg", "0 2 4 / 0 24 56 · 8 % / 22 %", "elementy wyraźnie nad stroną (rzadko)"],
-  ["shadow-float", "trzy warstwy do 64 px", "elementy pływające nad treścią"],
 ] as const;
 
 export const motion = [

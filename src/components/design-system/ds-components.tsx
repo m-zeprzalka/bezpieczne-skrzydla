@@ -142,7 +142,7 @@ export function DsComponents() {
       </DsSub>
 
       {/* — kafelek liczby — */}
-      <DsSub id="kafelek" title="Kafelek liczby" text="Wartość Fraunces z ikoną i podpisem. Na stronie głównej cztery fakty stoją w jednej linii nad włoskową kreską — bez ramek; wersja w ramkach służy panelom.">
+      <DsSub id="kafelek" title="Kafelek liczby" text="Wartość Fraunces z ikoną i podpisem. Na stronie głównej cztery fakty stoją 2×2 pod treścią hero, nad włoskową kreską — bez ramek; wersja w ramkach służy panelom.">
         <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-brand-200/80 bg-brand-200/70 min-[480px]:grid-cols-2 lg:grid-cols-4">
           {[
             ["4R", "autorski model z warstwą Fundament"],

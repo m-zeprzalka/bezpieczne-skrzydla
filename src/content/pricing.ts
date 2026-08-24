@@ -25,7 +25,6 @@ export const pricing = {
       "szkolenie online dopasowane do stanowiska — do 30 osób",
       "certyfikaty, raport i imienna lista przeszkolonych",
     ],
-    interest: "Pakiet „Bezpieczna Firma”",
   },
   plans: [
     {
@@ -35,7 +34,6 @@ export const pricing = {
       description:
         "Nagrane lekcje wideo, materiały do pobrania, test i imienny certyfikat. Dostęp 60 dni, do przerobienia we własnym tempie.",
       audience: "dla pojedynczej osoby",
-      interest: "Kurs online dla jednej osoby",
     },
     {
       id: "pakiet-firma",
@@ -44,7 +42,6 @@ export const pricing = {
       description:
         "Dostępy do kursu dla całego zespołu i certyfikaty dla uczestników. W cenie raport z realizacji szkolenia, imienna lista przeszkolonych osób z datami, czyli dokumentacja działań prewencyjnych pracodawcy.",
       audience: "dla zespołu",
-      interest: "Pakiet dla firmy",
     },
     {
       id: "msp-bez-chaosu",
@@ -53,7 +50,6 @@ export const pricing = {
       description:
         "Procedura antymobbingowa, wzory dokumentów i konsultacje. Dla firm bez działu HR, które potrzebują gotowego rozwiązania, a nie kolejnego szkolenia.",
       audience: "dla pracodawców MŚP",
-      interest: "Wdrożenie „MŚP bez chaosu”",
     },
     {
       id: "stacjonarne",
@@ -62,7 +58,6 @@ export const pricing = {
       description:
         "Na życzenie klienta, grupa 10–15 osób. Dojazd, nocleg i sala rozliczane osobno, zawsze ustalone przed podpisaniem umowy.",
       audience: "na życzenie, grupa 10–15 osób",
-      interest: "Szkolenie stacjonarne",
     },
   ],
   emphasis: "Każdą ofertę przygotowuję indywidualnie, po bezpłatnej rozmowie.",

@@ -17,7 +17,7 @@ export function Section({
   ...props
 }: React.ComponentProps<"section"> & {
   tone?: SectionTone;
-  size?: "default" | "compact" | "flush";
+  size?: "default" | "compact";
 }) {
   return (
     <section
