@@ -11,10 +11,10 @@ export function ContactHome() {
   return (
     <Section id="kontakt" tone="tint">
       <Container>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-12">
           <div className="md:col-span-5">
             <SectionHead index="08" label={contact.label} title="Poproś o" accent="wycenę" lead={contact.lead} />
-            <Reveal delay={0.1} className="mt-10">
+            <Reveal delay={0.1} className="mt-12">
               <ContactDetails />
             </Reveal>
           </div>
@@ -22,7 +22,7 @@ export function ContactHome() {
           <div id="wycena" className="scroll-mt-28 md:col-span-7 md:pl-4 lg:pl-12">
             <Reveal delay={0.08}>
               <Suspense fallback={<div className="min-h-[36rem] rounded-panel bg-white/60" aria-hidden />}>
-                <QuoteForm className="bg-white shadow-lift" />
+                <QuoteForm className="border border-brand-200/80 bg-white" />
               </Suspense>
             </Reveal>
           </div>

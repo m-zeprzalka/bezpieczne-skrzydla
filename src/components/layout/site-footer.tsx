@@ -13,8 +13,8 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-brand-100 bg-surface-tint">
-      <Container className="py-16 md:py-20">
-        <WingRule className="mb-14" />
+      <Container className="py-20 md:py-24">
+        <WingRule className="mb-16" />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-12">
           <div className="md:col-span-4">
@@ -74,7 +74,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-brand-200/70 pt-8 text-caption text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-brand-200/70 pt-8 text-caption text-ink-muted sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name} · {site.owner}. Wszelkie prawa zastrzeżone.
           </p>

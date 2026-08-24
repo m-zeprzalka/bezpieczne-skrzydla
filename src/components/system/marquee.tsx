@@ -14,18 +14,17 @@ export function Marquee({
   return (
     <div
       className={cn(
-        "relative overflow-hidden bg-surface-deep py-5 text-brand-100",
+        "relative overflow-hidden bg-surface-deep py-4 text-brand-100",
         className,
       )}
     >
-      <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-50" />
       <div
         aria-hidden
         className="mask-fade-edges animate-marquee relative flex w-max items-center gap-10 motion-reduce:animate-none"
       >
         {[...items, ...items].map((item, i) => (
           <span key={`${item}-${i}`} className="flex items-center gap-10">
-            <span className="text-[0.95rem] font-medium tracking-wide whitespace-nowrap">
+            <span className="text-[0.875rem] font-medium tracking-wide whitespace-nowrap">
               {item}
             </span>
             <span aria-hidden className="size-1.5 shrink-0 rounded-full bg-brand-400" />

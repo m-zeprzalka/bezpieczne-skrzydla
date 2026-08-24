@@ -17,23 +17,23 @@
   --font-heading: var(--font-fraunces);
 
   /* — skala typograficzna (płynna; wartości w /design-system) — */
-  --text-display: clamp(2.6rem, 1.7rem + 3vw, 4.4rem);
-  --text-display--line-height: 1.02;
-  --text-display--letter-spacing: -0.028em;
-  --text-h1: clamp(2.5rem, 1.85rem + 2.5vw, 4rem);
-  --text-h1--line-height: 1.06;
-  --text-h1--letter-spacing: -0.024em;
-  --text-h2: clamp(2rem, 1.5rem + 1.7vw, 3rem);
-  --text-h2--line-height: 1.1;
-  --text-h2--letter-spacing: -0.02em;
-  --text-h3: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
-  --text-h3--line-height: 1.2;
-  --text-h3--letter-spacing: -0.012em;
-  --text-h4: 1.1875rem;
-  --text-h4--line-height: 1.3;
-  --text-h4--letter-spacing: -0.008em;
-  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
-  --text-lead--line-height: 1.6;
+  --text-display: clamp(2.5rem, 1.75rem + 2.4vw, 3.75rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.025em;
+  --text-h1: clamp(2.25rem, 1.7rem + 1.8vw, 3.25rem);
+  --text-h1--line-height: 1.08;
+  --text-h1--letter-spacing: -0.022em;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem);
+  --text-h2--line-height: 1.12;
+  --text-h2--letter-spacing: -0.018em;
+  --text-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-h4: 1.125rem;
+  --text-h4--line-height: 1.35;
+  --text-h4--letter-spacing: -0.006em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem);
+  --text-lead--line-height: 1.65;
   --text-body: 1rem;
   --text-body--line-height: 1.7;
   --text-body-sm: 0.9375rem;
@@ -42,9 +42,9 @@
   --text-small--line-height: 1.55;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
-  --text-label: 0.72rem;
+  --text-label: 0.7rem;
   --text-label--line-height: 1.2;
-  --text-label--letter-spacing: 0.18em;
+  --text-label--letter-spacing: 0.16em;
 
   /* — kolory semantyczne (shadcn) — */
   --color-background: var(--background);
@@ -124,17 +124,17 @@
   --radius-3xl: 2rem;
   --radius-4xl: 2.5rem;
   --radius-field: 0.75rem;
-  --radius-card: 1.5rem;
-  --radius-panel: 2rem;
+  --radius-card: 1.25rem;
+  --radius-panel: 1.5rem;
 
   /* — elewacja — */
   --shadow-hairline: 0 0 0 1px color-mix(in oklch, var(--brand-900) 8%, transparent);
   --shadow-lift:
-    0 1px 2px -1px color-mix(in oklch, var(--brand-900) 8%, transparent),
-    0 12px 32px -12px color-mix(in oklch, var(--brand-900) 18%, transparent);
+    0 1px 2px -1px color-mix(in oklch, var(--brand-900) 6%, transparent),
+    0 10px 28px -14px color-mix(in oklch, var(--brand-900) 14%, transparent);
   --shadow-lift-lg:
-    0 2px 4px -2px color-mix(in oklch, var(--brand-900) 10%, transparent),
-    0 28px 64px -20px color-mix(in oklch, var(--brand-900) 28%, transparent);
+    0 2px 4px -2px color-mix(in oklch, var(--brand-900) 8%, transparent),
+    0 24px 56px -24px color-mix(in oklch, var(--brand-900) 22%, transparent);
   --shadow-float:
     0 1px 1px -0.5px color-mix(in oklch, var(--brand-900) 6%, transparent),
     0 8px 16px -8px color-mix(in oklch, var(--brand-900) 14%, transparent),
@@ -255,7 +255,7 @@
   html {
     @apply font-sans;
     -webkit-tap-highlight-color: transparent;
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5.5rem;
   }
 
   /* Płynne przewijanie tylko dla osób bez ograniczenia ruchu.
@@ -543,8 +543,8 @@
   }
 
   .card-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lift-lg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lift);
   }
 
   @media (prefers-reduced-motion: reduce) {

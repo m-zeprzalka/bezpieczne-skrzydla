@@ -48,11 +48,11 @@ export function CourseFormat({
   }
 
   return (
-    <RevealGroup as="ul" className={cn("grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3", className)}>
+    <RevealGroup as="ul" className={cn("grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3", className)}>
       {items.map((item) => {
         const Icon = icons[item.icon];
         return (
-          <RevealItem as="li" key={item.title} className="flex gap-4 rounded-card border border-brand-200/80 bg-white p-5">
+          <RevealItem as="li" key={item.title} className="flex gap-4 rounded-card border border-brand-200/80 bg-white p-6">
             <IconTile tone="tint">
               <Icon aria-hidden />
             </IconTile>

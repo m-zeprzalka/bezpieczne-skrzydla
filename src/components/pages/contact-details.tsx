@@ -22,18 +22,18 @@ export function ContactDetails({ className, reasons = true }: { className?: stri
         </ul>
       ) : null}
 
-      <address className={cn("flex flex-col gap-4 not-italic", reasons && "mt-10")}>
-        <p className="font-display text-[1.3rem] text-ink">{site.owner}</p>
+      <address className={cn("flex flex-col gap-4 not-italic", reasons && "mt-12")}>
+        <p className="font-display text-[1.2rem] text-ink">{site.owner}</p>
         <a
           href={`tel:${site.phoneHref}`}
-          className="focus-ring flex items-center gap-3 rounded-sm text-[1.0625rem] font-semibold text-brand-900 transition-colors hover:text-brand-600"
+          className="focus-ring flex items-center gap-3 rounded-sm text-[1rem] font-semibold text-brand-900 transition-colors hover:text-brand-600"
         >
           <Phone className="size-4 text-brand-500" aria-hidden />
           {site.phone}
         </a>
         <a
           href={`mailto:${site.email}`}
-          className="focus-ring flex items-center gap-3 rounded-sm text-[1.0625rem] font-semibold break-all text-brand-900 transition-colors hover:text-brand-600"
+          className="focus-ring flex items-center gap-3 rounded-sm text-[1rem] font-semibold break-all text-brand-900 transition-colors hover:text-brand-600"
         >
           <Mail className="size-4 shrink-0 text-brand-500" aria-hidden />
           {site.email}
@@ -55,7 +55,7 @@ export function ContactDetails({ className, reasons = true }: { className?: stri
         </div>
       </dl>
 
-      <div className="mt-8 border-t border-brand-100 pt-7">
+      <div className="mt-10 border-t border-brand-100 pt-8">
         <p className="t-label text-brand-600">Media społecznościowe</p>
         <SocialLinks className="mt-4" />
       </div>

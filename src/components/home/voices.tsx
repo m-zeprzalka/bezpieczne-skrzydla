@@ -15,20 +15,20 @@ export function Voices() {
   return (
     <Section id="slysze" tone="tint">
       <Container>
-        <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-28">
               <Reveal className="flex items-baseline gap-3.5">
-                <span aria-hidden className="t-outline text-[2.25rem] leading-none select-none">
+                <span aria-hidden className="t-outline text-[1.6rem] leading-none select-none">
                   03
                 </span>
                 <span className="t-label text-brand-600">{voices.eyebrow}</span>
               </Reveal>
               <Reveal delay={0.06} as="div" className="mt-6">
-                <h2 className="font-display text-[clamp(1.6rem,1.2rem+1.4vw,2.2rem)] leading-[1.2] tracking-[-0.015em] text-balance text-ink">{voices.intro}</h2>
+                <h2 className="font-display text-[clamp(1.5rem,1.2rem+1vw,1.9rem)] leading-[1.25] tracking-[-0.015em] text-balance text-ink">{voices.intro}</h2>
               </Reveal>
-              <Reveal delay={0.12} className="mt-8 hidden lg:block">
-                <p className="max-w-[24rem] font-display text-[1.1rem] leading-[1.55] text-brand-800">{voices.outro.text}</p>
+              <Reveal delay={0.12} className="mt-10 hidden lg:block">
+                <p className="max-w-[22rem] font-display text-[1.05rem] leading-[1.55] text-brand-800">{voices.outro.text}</p>
                 <ArrowLink href={voices.outro.cta.href} className="mt-4">
                   {voices.outro.cta.label}
                 </ArrowLink>
@@ -45,7 +45,7 @@ export function Voices() {
                     key={item.id}
                     as="article"
                     delay={0.04}
-                    className="grid grid-cols-1 gap-4 py-10 first:pt-0 last:pb-0 md:grid-cols-[8.5rem_1fr] md:gap-8 lg:py-12"
+                    className="grid grid-cols-1 gap-4 py-12 first:pt-0 last:pb-0 md:grid-cols-[8.5rem_1fr] md:gap-10 lg:py-14"
                   >
                     <div className="md:pt-2 md:pr-3">
                       <p className="t-label text-brand-600">{item.who}</p>
@@ -53,12 +53,12 @@ export function Voices() {
                     </div>
 
                     <div>
-                      <blockquote className="border-l-2 border-brand-400 pl-6 font-display text-[clamp(1.35rem,2.4vw,1.85rem)] leading-[1.25] text-ink">
+                      <blockquote className="border-l-2 border-brand-400 pl-6 font-display text-[clamp(1.25rem,1.1rem+0.8vw,1.6rem)] leading-[1.3] text-ink">
                         „{item.quote}”
                       </blockquote>
                       <div className="mt-6 flex flex-col gap-4 pl-6">
                         {item.answer.map((paragraph) => (
-                          <p key={paragraph} className="measure text-[1.03rem] leading-[1.7] text-brand-900/85">
+                          <p key={paragraph} className="max-w-[36rem] text-body text-brand-900/85">
                             {paragraph}
                           </p>
                         ))}

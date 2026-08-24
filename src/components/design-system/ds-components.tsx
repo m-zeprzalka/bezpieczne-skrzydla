@@ -55,7 +55,7 @@ export function DsComponents() {
             </Button>
             <Button variant="outline-inverse" size="xl">789 61 61 31</Button>
           </Specimen>
-          <Specimen caption="rozmiary: md 40 · lg 44 · xl 52 px — lg i xl spełniają cel dotyku 44 px" align="center">
+          <Specimen caption="rozmiary: md 40 · lg 44 · xl 48 px — lg i xl spełniają cel dotyku 44 px" align="center">
             <Button variant="brand" size="md">Rozmiar md</Button>
             <Button variant="brand" size="lg">Rozmiar lg</Button>
             <Button variant="brand" size="xl">Rozmiar xl</Button>
@@ -134,7 +134,7 @@ export function DsComponents() {
       </DsSub>
 
       {/* — karty — */}
-      <DsSub id="karty" title="Karty" text="Cała powierzchnia karty jest odnośnikiem. Numer w obrysie w narożniku, etykieta, tytuł Fraunces, opis, stopka z faktem i akcją. Pod kursorem karta unosi się o 4 px.">
+      <DsSub id="karty" title="Karty" text="Cała powierzchnia karty jest odnośnikiem. Etykieta, tytuł Fraunces, opis, stopka z faktem i akcją; włoskowa ramka, bez cienia w spoczynku. Pod kursorem karta unosi się o 2 px.">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           <TrainingCard training={trainings[0]} />
           <WorkshopCard />
@@ -143,7 +143,7 @@ export function DsComponents() {
       </DsSub>
 
       {/* — kafelek liczby — */}
-      <DsSub id="kafelek" title="Kafelek liczby" text="Ikona w kafelku, wartość Fraunces, podpis. Cztery kafelki w rzędzie oddzielone 1 px liniami (siatka z gap-px).">
+      <DsSub id="kafelek" title="Kafelek liczby" text="Wartość Fraunces z ikoną i podpisem. Na stronie głównej cztery fakty stoją w jednej linii nad włoskową kreską — bez ramek; wersja w ramkach służy panelom.">
         <ul className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-brand-200/80 bg-brand-200/70 min-[480px]:grid-cols-2 lg:grid-cols-4">
           {[
             ["4R", "autorski model z warstwą Fundament"],

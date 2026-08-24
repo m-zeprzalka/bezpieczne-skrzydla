@@ -86,7 +86,7 @@ export function QuoteForm({ className }: { className?: string }) {
         ref={successRef}
         tabIndex={-1}
         className={cn(
-          "focus-ring flex flex-col items-start rounded-panel border border-brand-200 bg-white p-8 lg:p-10",
+          "focus-ring flex flex-col items-start rounded-panel border border-brand-200 bg-white p-9 lg:p-11",
           className,
         )}
       >
@@ -112,9 +112,9 @@ export function QuoteForm({ className }: { className?: string }) {
     <form
       action={action}
       noValidate
-      className={cn("rounded-panel bg-brand-50/80 p-6 sm:p-8 lg:p-10", className)}
+      className={cn("rounded-panel bg-brand-50/80 p-7 sm:p-9 lg:p-11", className)}
     >
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-8">
         <ChipRadioGroup
           legend={quoteForm.interestLegend}
           name="interest"

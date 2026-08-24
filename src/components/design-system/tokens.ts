@@ -58,20 +58,20 @@ export const semanticTokens = [
 ] as const;
 
 export const typeScale = [
-  { token: "text-display", size: "clamp(2.6rem, 1.7rem + 3vw, 4.4rem)", lh: "1.02", ls: "-0.028em", font: "Fraunces", use: "H1 strony głównej" },
-  { token: "text-h1", size: "clamp(2.5rem, 1.85rem + 2.5vw, 4rem)", lh: "1.06", ls: "-0.024em", font: "Fraunces", use: "H1 podstron" },
-  { token: "text-h2", size: "clamp(2rem, 1.5rem + 1.7vw, 3rem)", lh: "1.1", ls: "-0.02em", font: "Fraunces", use: "tytuły sekcji" },
-  { token: "text-h3", size: "clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem)", lh: "1.2", ls: "-0.012em", font: "Fraunces", use: "tytuły kart, śródtytuły artykułów" },
-  { token: "text-h4", size: "1.1875rem", lh: "1.3", ls: "-0.008em", font: "Fraunces", use: "tytuły w panelach" },
-  { token: "text-lead", size: "clamp(1.0625rem, 1rem + 0.3vw, 1.25rem)", lh: "1.6", ls: "0", font: "Inter", use: "leady sekcji" },
+  { token: "text-display", size: "clamp(2.5rem, 1.75rem + 2.4vw, 3.75rem)", lh: "1.05", ls: "-0.025em", font: "Fraunces", use: "H1 strony głównej" },
+  { token: "text-h1", size: "clamp(2.25rem, 1.7rem + 1.8vw, 3.25rem)", lh: "1.08", ls: "-0.022em", font: "Fraunces", use: "H1 podstron" },
+  { token: "text-h2", size: "clamp(1.75rem, 1.4rem + 1.2vw, 2.5rem)", lh: "1.12", ls: "-0.018em", font: "Fraunces", use: "tytuły sekcji" },
+  { token: "text-h3", size: "clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem)", lh: "1.25", ls: "-0.01em", font: "Fraunces", use: "tytuły kart, śródtytuły artykułów" },
+  { token: "text-h4", size: "1.125rem", lh: "1.35", ls: "-0.006em", font: "Fraunces", use: "tytuły w panelach" },
+  { token: "text-lead", size: "clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem)", lh: "1.65", ls: "0", font: "Inter", use: "leady sekcji" },
   { token: "text-body", size: "1rem", lh: "1.7", ls: "0", font: "Inter", use: "treść" },
   { token: "text-body-sm", size: "0.9375rem", lh: "1.65", ls: "0", font: "Inter", use: "opisy w kartach" },
   { token: "text-small", size: "0.875rem", lh: "1.55", ls: "0", font: "Inter", use: "listy, meta" },
   { token: "text-caption", size: "0.8125rem", lh: "1.5", ls: "0", font: "Inter", use: "podpisy, daty, dane rejestrowe" },
-  { token: "t-label", size: "0.72rem", lh: "1.2", ls: "0.18em · wersaliki", font: "Inter 600", use: "etykiety sekcji, kategorie" },
+  { token: "t-label", size: "0.7rem", lh: "1.2", ls: "0.16em · wersaliki", font: "Inter 600", use: "etykiety sekcji, kategorie" },
 ] as const;
 
-export const spacingScale = [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 96, 128, 144] as const;
+export const spacingScale = [4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160] as const;
 
 export const breakpoints = [
   ["sm", "640 px", "dwie kolumny kart, przyciski obok siebie"],
@@ -84,22 +84,22 @@ export const breakpoints = [
 export const radii = [
   ["rounded-md", "0.75rem", "przyciski pomocnicze (shadcn)"],
   ["rounded-field", "0.75rem", "pola formularzy, kafelki ikon"],
-  ["rounded-card", "1.5rem", "karty, plakietki"],
-  ["rounded-panel", "2rem", "panele, formularz, pas Fundamentu"],
+  ["rounded-card", "1.25rem", "karty, plakietki"],
+  ["rounded-panel", "1.5rem", "panele, formularz, pas Fundamentu"],
   ["rounded-full", "9999px", "przyciski marki, pastylki, chipsy"],
 ] as const;
 
 export const shadows = [
   ["shadow-hairline", "obrys 1 px z krycia 8 % granatu", "alternatywa dla obramowania na zdjęciach"],
-  ["shadow-lift", "0 1 2 / 0 12 32 · 8 % / 18 %", "karty w spoczynku, plakietki"],
-  ["shadow-lift-lg", "0 2 4 / 0 28 64 · 10 % / 28 %", "karty pod kursorem, kadr autorki"],
+  ["shadow-lift", "0 1 2 / 0 10 28 · 6 % / 14 %", "karta pod kursorem, kadr autorki"],
+  ["shadow-lift-lg", "0 2 4 / 0 24 56 · 8 % / 22 %", "elementy wyraźnie nad stroną (rzadko)"],
   ["shadow-float", "trzy warstwy do 64 px", "elementy pływające nad treścią"],
 ] as const;
 
 export const motion = [
   ["150 ms", "linear / ease", "zmiana koloru, obrysu"],
   ["300 ms", "ease-out-expo", "przesunięcie strzałki, tło przycisku"],
-  ["500 ms", "ease-out-expo", "uniesienie karty, chowanie nagłówka"],
+  ["500 ms", "ease-out-expo", "uniesienie karty o 2 px, chowanie nagłówka"],
   ["700 ms", "ease-out-expo", "wejście sekcji (Reveal) — 16 px w górę + krycie"],
   ["850 ms", "ease-out-expo", "słowa nagłówka H1 (maska, 40 ms odstępu)"],
   ["48 s", "linear, w pętli", "pasek haseł (marquee)"],

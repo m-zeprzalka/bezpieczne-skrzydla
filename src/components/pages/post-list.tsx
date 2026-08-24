@@ -41,10 +41,10 @@ export function PostList({ posts }: { posts: Post[] }) {
       </div>
 
       {featured ? (
-        <div className="mt-12" key={active}>
+        <div className="mt-14" key={active}>
           <PostCard post={featured} large className="lg:grid lg:grid-cols-12 lg:gap-10 [&>div:first-child]:lg:col-span-7 [&>div:last-child]:lg:col-span-5 [&>div:last-child]:lg:mt-0 [&>div:last-child]:lg:justify-center" />
           {rest.length > 0 ? (
-            <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 border-t border-brand-200 pt-14 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-14 border-t border-brand-200/80 pt-16 md:grid-cols-2 lg:grid-cols-3">
               {rest.map((post) => (
                 <PostCard key={post.slug} post={post} />
               ))}

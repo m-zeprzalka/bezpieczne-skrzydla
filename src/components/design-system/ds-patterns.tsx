@@ -50,7 +50,7 @@ export function DsPatterns() {
         <DoDont
           good={
             <ul className="flex flex-col gap-2">
-              <li><strong className="font-semibold text-ink">Główne:</strong> <Code>Button variant=&quot;brand&quot;</Code> „Poproś o wycenę”, pastylka, 52 px.</li>
+              <li><strong className="font-semibold text-ink">Główne:</strong> <Code>Button variant=&quot;brand&quot;</Code> „Poproś o wycenę”, pastylka, 48 px.</li>
               <li><strong className="font-semibold text-ink">Drugie:</strong> <Code>ArrowLink</Code> „Poznaj cały Model 4R” — obok głównego, nigdy jako drugi przycisk pełny.</li>
               <li><strong className="font-semibold text-ink">Na ciemnym tle:</strong> <Code>inverse</Code> + <Code>outline-inverse</Code> z telefonem.</li>
               <li>Parametr <Code>?temat=</Code> w adresie formularza wstępnie zaznacza, czego dotyczy wycena.</li>

@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 export type SectionTone = "white" | "tint" | "deep" | "sand";
 
 /**
- * Sekcja strony. Rytm pionowy: 96 → 128 → 144 px (`size="default"`),
- * 64 → 96 → 112 px (`size="compact"`). Ton tła zmienia się między sąsiednimi
+ * Sekcja strony. Rytm pionowy: 96 → 128 → 160 px (`size="default"`),
+ * 64 → 96 → 128 px (`size="compact"`). Ton tła zmienia się między sąsiednimi
  * sekcjami — nigdy dwie ciemne obok siebie (zasada z /design-system).
  */
 export function Section({
@@ -24,8 +24,8 @@ export function Section({
       data-tone={tone}
       className={cn(
         "relative scroll-mt-20",
-        size === "default" && "py-24 md:py-32 lg:py-36",
-        size === "compact" && "py-16 md:py-24 lg:py-28",
+        size === "default" && "py-24 md:py-32 lg:py-40",
+        size === "compact" && "py-16 md:py-24 lg:py-32",
         tone === "tint" && "bg-surface-tint",
         tone === "deep" && "bg-surface-deep text-brand-100",
         tone === "sand" && "bg-sand-50",
@@ -35,6 +35,9 @@ export function Section({
     />
   );
 }
+
+/** Stały odstęp między nagłówkiem sekcji a jej treścią: 64 → 80 px. */
+export const HEAD_GAP = "mt-16 lg:mt-20";
 
 /**
  * Nagłówek sekcji — podpis marki: numer w obrysie + etykieta w kapitalikach,
@@ -74,19 +77,19 @@ export function SectionHead({
     <div
       className={cn(
         "flex flex-col",
-        centered ? "mx-auto max-w-[46rem] items-center text-center" : "max-w-[46rem]",
+        centered ? "mx-auto max-w-[40rem] items-center text-center" : "max-w-[40rem]",
         className,
       )}
     >
       {label ? (
         <Reveal
-          className={cn("flex items-baseline gap-3.5", centered && "justify-center")}
+          className={cn("flex items-baseline gap-3", centered && "justify-center")}
         >
           {index ? (
             <span
               aria-hidden
               className={cn(
-                "text-[2.25rem] leading-none select-none",
+                "text-[1.6rem] leading-none select-none",
                 dark ? "t-outline-dark" : "t-outline",
               )}
             >
@@ -99,7 +102,7 @@ export function SectionHead({
         </Reveal>
       ) : null}
 
-      <Reveal delay={0.06} as="div" className={cn(label ? "mt-6" : "")}>
+      <Reveal delay={0.06} as="div" className={cn(label ? "mt-5" : "")}>
         <Heading
           className={cn(
             "text-balance",
@@ -127,7 +130,7 @@ export function SectionHead({
           delay={0.12}
           as="p"
           className={cn(
-            "text-lead mt-6 max-w-[40rem] text-pretty",
+            "text-lead mt-5 max-w-[34rem] text-pretty",
             dark ? "text-brand-200/85" : "text-ink-muted",
           )}
         >

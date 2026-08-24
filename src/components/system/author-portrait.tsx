@@ -27,7 +27,7 @@ export function AuthorPortrait({
         "relative aspect-4/5 overflow-hidden rounded-panel border",
         dark
           ? "border-white/10 bg-brand-900/60"
-          : "border-brand-200/80 bg-white shadow-lift-lg",
+          : "border-brand-200/80 bg-white shadow-lift",
         className,
       )}
     >
@@ -49,7 +49,7 @@ export function AuthorPortrait({
           <WingArcs
             animate={false}
             tone={tone}
-            className="absolute -bottom-14 left-1/2 w-[480px] max-w-none -translate-x-1/2 opacity-40"
+            className="absolute -bottom-14 left-1/2 w-[480px] max-w-none -translate-x-1/2 opacity-30"
             count={9}
           />
           <div className="relative flex h-full flex-col items-center justify-center gap-6 p-8 text-center">
@@ -59,10 +59,6 @@ export function AuthorPortrait({
                 dark ? "ring-1 ring-white/15" : "ring-1 ring-brand-200",
               )}
             >
-              <span
-                aria-hidden
-                className="animate-pulse-ring absolute inset-0 rounded-full border border-brand-400/40 motion-reduce:hidden"
-              />
               <Image
                 src="/logo-bezpieczne-skrzydla.png"
                 alt=""

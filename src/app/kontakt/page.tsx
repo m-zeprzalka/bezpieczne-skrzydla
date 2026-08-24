@@ -7,7 +7,7 @@ import { Container } from "@/components/system/container";
 import { IconTile } from "@/components/system/icon-tile";
 import { PageHero } from "@/components/system/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/reveal";
-import { Section, SectionHead } from "@/components/system/section";
+import { HEAD_GAP, Section, SectionHead } from "@/components/system/section";
 import { contact } from "@/content/contact";
 import { breadcrumbJsonLd, JsonLd, pageMetadata } from "@/lib/seo";
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
 
       <Section id="wycena" size="compact">
         <Container>
-          <div className="grid grid-cols-1 gap-x-8 gap-y-14 md:grid-cols-12">
+          <div className="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-12">
             <div className="md:col-span-5">
               <Reveal>
                 <ContactDetails />
@@ -79,17 +79,17 @@ export default function ContactPage() {
       <Section id="co-dalej" tone="tint">
         <Container>
           <SectionHead label="Co dalej" title="Trzy kroki" accent="do propozycji" align="center" />
-          <RevealGroup as="ol" className="mx-auto mt-14 grid max-w-[60rem] grid-cols-1 gap-5 md:grid-cols-3">
+          <RevealGroup as="ol" className={`${HEAD_GAP} mx-auto grid max-w-[58rem] grid-cols-1 gap-6 md:grid-cols-3`}>
             {steps.map((step, i) => (
-              <RevealItem as="li" key={step.title} className="relative flex flex-col rounded-card border border-brand-200/80 bg-white p-7">
-                <span aria-hidden className="t-outline absolute top-5 right-6 text-[2.4rem] leading-none select-none">
+              <RevealItem as="li" key={step.title} className="relative flex flex-col rounded-card border border-brand-200/80 bg-white p-8">
+                <span aria-hidden className="t-outline absolute top-6 right-7 text-[1.6rem] leading-none select-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <IconTile tone="tint" size="lg">
                   <step.icon aria-hidden />
                 </IconTile>
-                <h3 className="mt-5 font-display text-[1.25rem] tracking-tight text-ink">{step.title}</h3>
-                <p className="mt-2.5 text-body-sm text-pretty text-ink-muted">{step.text}</p>
+                <h3 className="mt-6 font-display text-[1.15rem] tracking-tight text-ink">{step.title}</h3>
+                <p className="mt-3 text-small text-pretty text-ink-muted">{step.text}</p>
               </RevealItem>
             ))}
           </RevealGroup>

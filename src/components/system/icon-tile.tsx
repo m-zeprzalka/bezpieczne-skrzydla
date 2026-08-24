@@ -19,8 +19,8 @@ export function IconTile({
       className={cn(
         "grid shrink-0 place-items-center rounded-xl [&_svg]:shrink-0",
         size === "sm" && "size-9 rounded-lg [&_svg]:size-4",
-        size === "md" && "size-11 [&_svg]:size-5",
-        size === "lg" && "size-14 rounded-2xl [&_svg]:size-6",
+        size === "md" && "size-10 [&_svg]:size-[1.1rem]",
+        size === "lg" && "size-12 rounded-xl [&_svg]:size-5",
         tone === "tint" && "bg-brand-50 text-brand-700",
         tone === "outline" && "border border-brand-200 bg-white text-brand-700",
         tone === "solid" && "bg-brand-700 text-white",

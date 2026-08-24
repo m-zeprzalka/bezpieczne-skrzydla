@@ -373,7 +373,7 @@ export function DsLayout() {
         </div>
       </DsSub>
 
-      <DsSub title="Skala odstępów" text="Podstawa 4 px. W praktyce w komponentach używa się 8–24 px, między blokami 32–64 px, między sekcjami 96–144 px.">
+      <DsSub title="Skala odstępów" text="Podstawa 4 px. Wewnątrz komponentów 8–24 px, wewnątrz kart 28–40 px, między nagłówkiem sekcji a treścią 64–80 px, między sekcjami 96–160 px.">
         <div className="flex flex-wrap items-end gap-3 rounded-card border border-brand-200/80 bg-white p-6">
           {spacingScale.map((step) => (
             <div key={step} className="flex flex-col items-center gap-2">
@@ -384,7 +384,7 @@ export function DsLayout() {
         </div>
       </DsSub>
 
-      <DsSub title="Rytm sekcji" text="Sekcja domyślna: 96 / 128 / 144 px pionu (telefon / tablet / desktop). Sekcja zwarta: 64 / 96 / 112 px. Ton tła zmienia się między sąsiednimi sekcjami.">
+      <DsSub title="Rytm sekcji" text="Sekcja domyślna: 96 / 128 / 160 px pionu (telefon / tablet / desktop). Sekcja zwarta: 64 / 96 / 128 px. Nagłówek sekcji od treści dzieli stałe 64 / 80 px (HEAD_GAP). Ton tła zmienia się między sąsiednimi sekcjami.">
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-5">
           {[
             ["Hero", "white"],
@@ -424,7 +424,7 @@ export function DsShape() {
       id="ksztalt"
       index="05"
       title="Kształt, linie i elewacja"
-      lead="Miękkie narożniki i włoskowe linie zamiast ciężkich ramek. Cień pojawia się tylko tam, gdzie element naprawdę „unosi się” nad stroną: karty pod kursorem, plakietki, kadr autorki."
+      lead="Miękkie narożniki i włoskowe linie zamiast ciężkich ramek. Karty w spoczynku nie mają cienia — cień pojawia się dopiero pod kursorem i przy kadrze autorki. Żadnych siatek, znaków wodnych ani ozdobników w tle treści."
     >
       <DsSub title="Promienie">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">

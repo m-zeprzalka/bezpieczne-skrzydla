@@ -5,7 +5,7 @@ import { TrainingCard, WorkshopCard } from "@/components/pages/training-card";
 import { ArrowLink } from "@/components/system/arrow-link";
 import { Container } from "@/components/system/container";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/reveal";
-import { Section, SectionHead } from "@/components/system/section";
+import { HEAD_GAP, Section, SectionHead } from "@/components/system/section";
 import { trainings, trainingsIntro } from "@/content/trainings";
 
 /**
@@ -25,7 +25,7 @@ export function TrainingsGrid() {
           align="center"
         />
 
-        <RevealGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3">
+        <RevealGroup className={`${HEAD_GAP} grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3`}>
           {trainings.map((training) => (
             <RevealItem key={training.slug} className="flex">
               <TrainingCard training={training} />
@@ -36,8 +36,8 @@ export function TrainingsGrid() {
           </RevealItem>
         </RevealGroup>
 
-        <Reveal className="mt-12 flex flex-col items-center gap-8">
-          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[0.875rem] font-medium text-brand-900/85">
+        <Reveal className="mt-14 flex flex-col items-center gap-8">
+          <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[0.85rem] font-medium text-brand-900/80">
             {[
               { Icon: Play, text: "nagrane lekcje wideo" },
               { Icon: Clock, text: "dostęp 60 dni" },

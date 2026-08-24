@@ -25,16 +25,16 @@ export function CtaBand({
 }) {
   return (
     <section className={cn("relative overflow-hidden bg-surface-deep text-brand-100", className)}>
-      <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-60" />
+      <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-40" />
       <WingArcs
         tone="dark"
-        className="absolute -bottom-40 left-1/2 w-[1000px] max-w-none -translate-x-1/2 opacity-20"
+        className="absolute -bottom-40 left-1/2 w-[1000px] max-w-none -translate-x-1/2 opacity-[0.12]"
         count={10}
       />
-      <Container className="relative py-20 md:py-28">
+      <Container className="relative py-24 md:py-32 lg:py-36">
         <Reveal className="mx-auto flex max-w-[52rem] flex-col items-center text-center">
           <h2 className="text-h2 text-balance text-white">{title}</h2>
-          <p className="text-lead mt-6 max-w-[38rem] text-pretty text-brand-200/85">{text}</p>
+          <p className="text-lead mt-6 max-w-[34rem] text-pretty text-brand-200/85">{text}</p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
             <Button asChild variant="inverse" size="xl">
               <Link href={cta.href}>

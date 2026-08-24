@@ -10,7 +10,7 @@ import { CtaBand } from "@/components/system/cta-band";
 import { PageHero } from "@/components/system/page-hero";
 import { Pill } from "@/components/system/pill";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/reveal";
-import { Section, SectionHead } from "@/components/system/section";
+import { HEAD_GAP, Section, SectionHead } from "@/components/system/section";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 import { getTraining, trainings } from "@/content/trainings";
@@ -80,13 +80,13 @@ export default async function TrainingPage({ params }: Props) {
         lead={lead}
         aside={
           <Reveal delay={0.2} className="lg:pl-6">
-            <div className="rounded-panel border border-brand-200/80 bg-white p-6 shadow-lift sm:p-7">
+            <div className="rounded-panel border border-brand-200/80 bg-white p-7 sm:p-8">
               <div className="flex items-baseline justify-between gap-4">
                 <span className="t-label text-brand-600">Kurs online</span>
-                <span className="font-display text-[1.6rem] leading-none text-ink">{training.priceFrom}</span>
+                <span className="font-display text-[1.4rem] leading-none text-ink">{training.priceFrom}</span>
               </div>
-              <CourseFormat variant="list" limit={4} className="mt-6" />
-              <Button asChild variant="brand" size="xl" className="mt-7 w-full">
+              <CourseFormat variant="list" limit={4} className="mt-7" />
+              <Button asChild variant="brand" size="xl" className="mt-8 w-full">
                 <Link href={`/kontakt?temat=${quoteTopic(training.slug)}`}>
                   Poproś o wycenę tego szkolenia
                   <ArrowRight data-icon="inline-end" className="transition-transform duration-300 group-hover/button:translate-x-0.5" />
@@ -106,25 +106,25 @@ export default async function TrainingPage({ params }: Props) {
 
       <Section id="program" size="compact">
         <Container>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-7">
                 {rest.map((paragraph) => (
-                  <Reveal key={paragraph} as="p" className="measure text-[1.0625rem] leading-[1.75] text-brand-900/85">
+                  <Reveal key={paragraph} as="p" className="max-w-[38rem] text-body text-brand-900/85">
                     {paragraph}
                   </Reveal>
                 ))}
               </div>
 
               {/* — pokazuję — */}
-              <Reveal className="mt-10 rounded-panel border border-brand-200/80 bg-brand-50/70 p-6 sm:p-8">
+              <Reveal className="mt-12 rounded-panel border border-brand-200/80 bg-brand-50/70 p-7 sm:p-9">
                 <h2 className="t-label flex items-center gap-2.5 text-brand-600">
                   <ListChecks className="size-4" aria-hidden />
                   {training.showsLabel}
                 </h2>
-                <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2">
+                <ul className="mt-7 grid grid-cols-1 gap-x-8 gap-y-3.5 sm:grid-cols-2">
                   {training.shows.map((item) => (
-                    <li key={item} className="flex gap-2.5 text-[0.9375rem] leading-[1.55] text-brand-900/90">
+                    <li key={item} className="flex gap-2.5 text-small text-brand-900/90">
                       <Check className="mt-0.5 size-4 shrink-0 text-brand-500" aria-hidden />
                       {item}
                     </li>
@@ -134,7 +134,7 @@ export default async function TrainingPage({ params }: Props) {
 
               {/* — mini-mapa 4R — */}
               {training.extra4R ? (
-                <Reveal className="mt-8">
+                <Reveal className="mt-10">
                   <p className="text-[0.9375rem] font-medium text-brand-900">{training.extra4R.intro}</p>
                   <ol className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {training.extra4R.items.map((item, i) => (
@@ -153,15 +153,15 @@ export default async function TrainingPage({ params }: Props) {
 
               {/* — zamknięcie — */}
               {training.closing?.map((paragraph) => (
-                <Reveal key={paragraph} className="relative mt-8 rounded-card border border-brand-200 bg-white p-6 pl-14 sm:p-7 sm:pl-16">
+                <Reveal key={paragraph} className="relative mt-10 rounded-card border border-brand-200/80 bg-white p-7 pl-14 sm:p-8 sm:pl-16">
                   <Quote aria-hidden className="absolute top-6 left-5 size-6 text-brand-300 sm:top-7 sm:left-6" />
-                  <p className="font-display text-[1.1rem] leading-[1.6] text-brand-900 sm:text-[1.2rem]">{paragraph}</p>
+                  <p className="font-display text-[1.05rem] leading-[1.6] text-brand-900 sm:text-[1.15rem]">{paragraph}</p>
                 </Reveal>
               ))}
 
               {/* — materiały — */}
               {training.materials ? (
-                <Reveal className="mt-10">
+                <Reveal className="mt-12">
                   <h2 className="t-label flex items-center gap-2.5 text-brand-600">
                     <Package className="size-4" aria-hidden />
                     Materiały dodatkowe
@@ -180,7 +180,7 @@ export default async function TrainingPage({ params }: Props) {
 
             <aside className="lg:col-span-4">
               <Reveal delay={0.1} className="lg:sticky lg:top-28">
-                <div className="rounded-panel bg-surface-deep p-6 text-brand-100 sm:p-7">
+                <div className="rounded-panel bg-surface-deep p-7 text-brand-100 sm:p-8">
                   <p className="t-label text-brand-300">Format</p>
                   <ul className="mt-5 flex flex-col gap-3 text-[0.9375rem]">
                     {[
@@ -200,7 +200,7 @@ export default async function TrainingPage({ params }: Props) {
                     Nie prowadzę zajęć na żywo przez internet. Wersja stacjonarna — na życzenie klienta.
                   </p>
                 </div>
-                <div className="mt-5 rounded-panel border border-brand-200/80 bg-white p-6">
+                <div className="mt-6 rounded-panel border border-brand-200/80 bg-white p-7">
                   <p className="t-label text-brand-600">Pakiet dla firmy</p>
                   <p className="mt-3 text-small text-ink-muted">
                     Dostępy dla zespołu, certyfikaty, raport z realizacji i imienna lista przeszkolonych — od 2 390 zł.
@@ -219,7 +219,7 @@ export default async function TrainingPage({ params }: Props) {
       <Section id="pozostale" tone="tint">
         <Container>
           <SectionHead label="Pozostałe szkolenia" title="Cztery programy dla" accent="innych ról" align="center" />
-          <RevealGroup className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealGroup className={`${HEAD_GAP} grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4`}>
             {others.map((other) => (
               <RevealItem key={other.slug} className="flex">
                 <TrainingCard training={other} />

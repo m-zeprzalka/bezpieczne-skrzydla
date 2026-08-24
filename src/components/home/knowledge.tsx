@@ -24,7 +24,7 @@ export function KnowledgeHome() {
           </Reveal>
         </div>
 
-        <RevealGroup className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-3 lg:mt-16">
+        <RevealGroup className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3 lg:mt-20">
           {latest.map((post) => (
             <RevealItem key={post.slug} className="flex">
               <PostCard post={post} />
@@ -32,22 +32,22 @@ export function KnowledgeHome() {
           ))}
         </RevealGroup>
 
-        <Reveal className="mt-16 lg:mt-20">
-          <div className="relative overflow-hidden rounded-panel bg-surface-deep p-7 text-brand-100 sm:p-10 lg:p-12">
-            <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-60" />
-            <WingArcs tone="dark" animate={false} className="absolute -right-32 -bottom-40 w-[640px] opacity-20" count={9} />
+        <Reveal className="mt-20 lg:mt-24">
+          <div className="relative overflow-hidden rounded-panel bg-surface-deep p-8 text-brand-100 sm:p-10 lg:p-14">
+            <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-40" />
+            <WingArcs tone="dark" animate={false} className="absolute -right-32 -bottom-40 w-[640px] opacity-[0.12]" count={9} />
             <div className="relative grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-6">
                 <p className="t-label text-brand-300">{knowledge.signup.title}</p>
-                <h3 className="mt-4 font-display text-[1.75rem] leading-[1.15] tracking-tight text-balance text-white sm:text-[2.1rem]">
+                <h3 className="mt-5 font-display text-[1.5rem] leading-[1.2] tracking-tight text-balance text-white sm:text-[1.85rem]">
                   Pierwsze materiały udostępniam po zapisie.
                 </h3>
                 <p className="mt-5 max-w-[30rem] text-body-sm text-pretty text-brand-200/85">{knowledge.signup.text}</p>
                 <NewsletterForm tone="dark" className="mt-8 max-w-[34rem]" />
               </div>
-              <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-6">
+              <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-6">
                 {resources.map((item) => (
-                  <li key={item.id} className="flex gap-3.5 rounded-card border border-white/10 bg-white/[0.06] p-4">
+                  <li key={item.id} className="flex gap-3.5 rounded-card border border-white/10 p-5">
                     <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-white/10 text-brand-200">
                       <FileDown className="size-4" aria-hidden />
                     </span>

@@ -40,12 +40,12 @@ export default function WorkshopPage() {
         lead={workshop.subtitle}
         aside={
           <Reveal delay={0.2} className="lg:pl-6">
-            <div className="rounded-panel border border-sand-200 bg-white p-6 shadow-lift sm:p-7">
+            <div className="rounded-panel border border-sand-200 bg-white p-7 sm:p-8">
               <h2 className="t-label flex items-center gap-2.5 text-sand-700">
                 <Coffee className="size-4" aria-hidden />
                 {workshop.wantsLabel}
               </h2>
-              <ul className="mt-5 flex flex-col gap-3">
+              <ul className="mt-6 flex flex-col gap-3.5">
                 {workshop.wants.map((item) => (
                   <li key={item} className="flex gap-3 text-[0.9rem] leading-[1.55] text-brand-900/90">
                     <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-brand-700 text-white">
@@ -55,7 +55,7 @@ export default function WorkshopPage() {
                   </li>
                 ))}
               </ul>
-              <Button asChild variant="brand" size="xl" className="mt-7 w-full">
+              <Button asChild variant="brand" size="xl" className="mt-8 w-full">
                 <Link href={workshop.cta.href}>
                   {workshop.cta.label}
                   <ArrowRight data-icon="inline-end" className="transition-transform duration-300 group-hover/button:translate-x-0.5" />
@@ -65,7 +65,7 @@ export default function WorkshopPage() {
           </Reveal>
         }
       >
-        <Reveal delay={0.2} className="mt-8">
+        <Reveal delay={0.2} className="mt-10">
           <Pill variant="label-outline" className="border-sand-200 text-sand-700">
             <Coffee />
             {workshop.badge}
@@ -75,28 +75,28 @@ export default function WorkshopPage() {
 
       <Section id="o-warsztacie" size="compact">
         <Container>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-12 lg:grid-cols-12">
             <div className="lg:col-span-8">
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-7">
                 {workshop.paragraphs.map((paragraph, i) => (
                   <Reveal
                     key={paragraph}
                     as="p"
                     className={
                       i === 0
-                        ? "measure font-display text-[1.3rem] leading-[1.5] text-ink sm:text-[1.45rem]"
-                        : "measure text-[1.0625rem] leading-[1.75] text-brand-900/85"
+                        ? "max-w-[38rem] font-display text-[1.2rem] leading-[1.5] text-ink sm:text-[1.3rem]"
+                        : "max-w-[38rem] text-body text-brand-900/85"
                     }
                   >
                     {paragraph}
                   </Reveal>
                 ))}
-                <Reveal as="p" className="measure text-[1.0625rem] leading-[1.75] text-brand-900/85">
+                <Reveal as="p" className="max-w-[38rem] text-body text-brand-900/85">
                   {workshop.format}
                 </Reveal>
               </div>
 
-              <Reveal className="mt-10 flex gap-4 rounded-panel border border-sand-200 bg-sand-50 p-6 sm:p-7">
+              <Reveal className="mt-12 flex gap-4 rounded-panel border border-sand-200 bg-sand-50 p-7 sm:p-8">
                 <Info className="mt-0.5 size-5 shrink-0 text-sand-700" aria-hidden />
                 <div>
                   <p className="text-[0.9375rem] font-semibold text-ink">Czym ten warsztat nie jest</p>
@@ -105,7 +105,7 @@ export default function WorkshopPage() {
                 </div>
               </Reveal>
 
-              <Reveal as="p" className="mt-12 max-w-[40rem] border-l-2 border-sand-200 pl-6 font-display text-[1.35rem] leading-[1.45] text-brand-800 sm:text-[1.55rem]">
+              <Reveal as="p" className="mt-14 max-w-[36rem] border-l-2 border-sand-200 pl-6 font-display text-[1.2rem] leading-[1.5] text-brand-800 sm:text-[1.35rem]">
                 {workshop.closing}
               </Reveal>
             </div>

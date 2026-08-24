@@ -8,7 +8,7 @@ import { Container } from "@/components/system/container";
 import { CtaBand } from "@/components/system/cta-band";
 import { PageHero } from "@/components/system/page-hero";
 import { Reveal, RevealGroup, RevealItem } from "@/components/system/reveal";
-import { Section, SectionHead } from "@/components/system/section";
+import { HEAD_GAP, Section, SectionHead } from "@/components/system/section";
 import { faqFor } from "@/content/faq";
 import { audiences } from "@/content/home";
 import { trainings, trainingsIntro } from "@/content/trainings";
@@ -41,9 +41,9 @@ export default function TrainingsPage() {
         accent="roli w organizacji"
         lead={trainingsIntro.lead}
       >
-        <Reveal delay={0.2} className="mt-10">
+        <Reveal delay={0.2} className="mt-12">
           <p className="t-label text-brand-600">Zacznij od swojej roli</p>
-          <ul className="mt-3 flex flex-wrap gap-2">
+          <ul className="mt-4 flex flex-wrap gap-2">
             {audiences.map((audience) => (
               <li key={audience.id}>
                 <Link
@@ -61,7 +61,7 @@ export default function TrainingsPage() {
 
       <Section id="lista" tone="tint" size="compact">
         <Container>
-          <RevealGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <RevealGroup className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {trainings.map((training) => (
               <RevealItem key={training.slug} className="flex">
                 <TrainingCard training={training} />
@@ -77,21 +77,21 @@ export default function TrainingsPage() {
       <Section id="dla-kogo">
         <Container>
           <SectionHead label="Dla kogo" title="Innych informacji potrzebuje pracownik," accent="innych pracodawca" lead="Zakres, język i materiały dopasowuję do grupy uczestników oraz celu szkolenia. Wybierz rolę — poprowadzę Cię do programu napisanego dla niej." />
-          <RevealGroup className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealGroup className={`${HEAD_GAP} grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4`}>
             {audiences.map((audience) => {
               const training = trainings.find((t) => t.number === audience.training);
               return (
                 <RevealItem key={audience.id} className="flex">
                   <Link
                     href={audience.href}
-                    className="card-lift focus-ring group flex w-full flex-col rounded-card border border-brand-200/80 bg-white p-6"
+                    className="card-lift focus-ring group flex w-full flex-col rounded-card border border-brand-200/80 bg-white p-7"
                   >
                     <span className="t-label text-brand-600">Szkolenie {audience.training}</span>
-                    <span className="mt-3 font-display text-[1.3rem] leading-[1.2] tracking-tight text-ink transition-colors group-hover:text-brand-700">
+                    <span className="mt-4 font-display text-[1.2rem] leading-[1.25] tracking-tight text-ink transition-colors group-hover:text-brand-700">
                       {audience.title}
                     </span>
-                    <span className="mt-3 flex-1 text-body-sm text-pretty text-ink-muted">{audience.description}</span>
-                    <span className="mt-5 inline-flex items-center gap-2 text-[0.875rem] font-semibold text-brand-800">
+                    <span className="mt-4 flex-1 text-small text-pretty text-ink-muted">{audience.description}</span>
+                    <span className="mt-6 inline-flex items-center gap-2 text-[0.85rem] font-semibold text-brand-800">
                       <span className="link-underline">{training?.shortTitle}</span>
                       <ArrowRight aria-hidden className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </span>
@@ -106,9 +106,9 @@ export default function TrainingsPage() {
       <Section id="format" tone="tint">
         <Container>
           <SectionHead label="Jak wygląda kurs" title="Nagrany kurs online —" accent="bez zajęć na żywo przez internet" lead="Moduły z krótkimi lekcjami wideo, test i imienny certyfikat. Jedyną formą na żywo jest szkolenie stacjonarne, na życzenie klienta." align="center" />
-          <CourseFormat className="mt-14" />
-          <div className="mx-auto mt-16 max-w-[46rem]">
-            <Reveal as="p" className="t-label mb-6 text-center text-brand-600">
+          <CourseFormat className={HEAD_GAP} />
+          <div className="mx-auto mt-20 max-w-[44rem] lg:mt-24">
+            <Reveal as="p" className="t-label mb-8 text-center text-brand-600">
               Pytania o szkolenia
             </Reveal>
             <FaqList items={faqFor("trainings")} />

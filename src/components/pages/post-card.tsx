@@ -38,7 +38,7 @@ export function PostCover({ post, className, large = false }: { post: Post; clas
       <span
         className={cn(
           "absolute top-4 left-6 font-display leading-none select-none",
-          large ? "text-[9rem]" : "text-[6.5rem]",
+          large ? "text-[7rem]" : "text-[5rem]",
         )}
       >
         „
@@ -61,17 +61,19 @@ export function PostCard({ post, className, large = false }: { post: Post; class
       <PostCover post={post} large={large} className="card-lift" />
       <div className={cn("flex flex-1 flex-col", large ? "mt-7" : "mt-5")}>
         <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-caption text-ink-muted">
-          <Pill variant="soft" className="text-[0.75rem]">
-            {post.category}
-          </Pill>
-          <time dateTime={post.date}>{formatDate(post.date)}</time>
+          {large ? (
+            <Pill variant="soft" className="text-[0.75rem]">
+              {post.category}
+            </Pill>
+          ) : null}
+          <time dateTime={post.date} className="whitespace-nowrap">{formatDate(post.date)}</time>
           <span aria-hidden>·</span>
-          <span>{readingLabel(post.readingMinutes)}</span>
+          <span className="whitespace-nowrap">{readingLabel(post.readingMinutes)}</span>
         </div>
         <h3
           className={cn(
             "mt-3 font-display leading-[1.2] tracking-tight text-balance text-ink transition-colors group-hover:text-brand-700",
-            large ? "text-[1.7rem] sm:text-[2.1rem]" : "text-[1.3rem]",
+            large ? "text-[1.6rem] sm:text-[1.9rem]" : "text-[1.2rem]",
           )}
         >
           <Link href={`/blog/${post.slug}`} className="focus-ring rounded-sm after:absolute after:inset-0 after:content-['']">

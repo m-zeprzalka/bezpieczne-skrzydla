@@ -30,7 +30,7 @@ const buttonVariants = cva(
 
         /* — warianty marki — */
         brand:
-          "rounded-full bg-brand-700 font-semibold text-brand-50 shadow-lift hover:bg-brand-800 hover:shadow-lift-lg",
+          "rounded-full bg-brand-700 font-semibold text-brand-50 hover:bg-brand-800",
         "brand-soft":
           "rounded-full bg-brand-100 font-semibold text-brand-900 hover:bg-brand-200",
         inverse:
@@ -48,8 +48,8 @@ const buttonVariants = cva(
         xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
         sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
         md: "h-10 gap-2 px-4 text-[0.875rem] has-data-[icon=inline-end]:pr-3.5 has-data-[icon=inline-start]:pl-3.5",
-        lg: "h-11 gap-2 px-5 text-[0.9rem] has-data-[icon=inline-end]:pr-4 has-data-[icon=inline-start]:pl-4",
-        xl: "h-[3.25rem] gap-2.5 px-7 text-[0.95rem] has-data-[icon=inline-end]:pr-6 has-data-[icon=inline-start]:pl-6 [&_svg:not([class*='size-'])]:size-[1.05rem]",
+        lg: "h-11 gap-2 px-5 text-[0.875rem] has-data-[icon=inline-end]:pr-4 has-data-[icon=inline-start]:pl-4",
+        xl: "h-12 gap-2.5 px-6 text-[0.9rem] has-data-[icon=inline-end]:pr-5 has-data-[icon=inline-start]:pl-5",
         icon: "size-8",
         "icon-xs":
           "size-6 rounded-[min(var(--radius-md),10px)] [&_svg:not([class*='size-'])]:size-3",

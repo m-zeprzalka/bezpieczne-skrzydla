@@ -12,7 +12,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
   return (
     <>
       <header className="border-b border-brand-100 bg-surface-tint">
-        <Container className="py-12 sm:py-16">
+        <Container className="py-14 sm:py-20">
           <Breadcrumbs items={[{ label: "Strona główna", href: "/" }, { label: doc.title }]} />
           <p className="t-label mt-8 text-brand-600">Dokument</p>
           <h1 className="text-h1 mt-4 text-ink">{doc.title}</h1>
@@ -23,7 +23,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
 
       <Section size="compact">
         <Container>
-          <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-12">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-12">
             <nav aria-label="Spis treści" className="lg:col-span-4">
               <div className="lg:sticky lg:top-28">
                 <p className="t-label text-brand-600">Spis treści</p>
@@ -53,7 +53,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
                     <h2 className="font-display text-h4 text-ink">{section.title}</h2>
                     <div className="mt-3 flex flex-col gap-3">
                       {section.paragraphs.map((paragraph) => (
-                        <p key={paragraph} className="measure text-body text-brand-900/85">
+                        <p key={paragraph} className="max-w-[38rem] text-body text-brand-900/85">
                           {paragraph}
                         </p>
                       ))}

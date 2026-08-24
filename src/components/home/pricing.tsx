@@ -9,8 +9,7 @@ import { pricing } from "@/content/pricing";
 export function PricingHome() {
   return (
     <Section id="cennik" tone="deep" className="overflow-hidden">
-      <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-50" />
-      <div aria-hidden className="bg-grid-dark mask-radial absolute inset-0 opacity-60" />
+      <div aria-hidden className="bg-aurora-deep absolute inset-0 opacity-40" />
 
       <Container className="relative">
         <SectionHead
@@ -23,10 +22,10 @@ export function PricingHome() {
           align="center"
         />
 
-        <PriceCards className="mt-14 lg:mt-16" />
+        <PriceCards className="mt-16 lg:mt-20" />
 
-        <Reveal delay={0.1} className="mt-14 flex flex-col items-center text-center lg:mt-16">
-          <p className="max-w-[44rem] font-display text-[1.5rem] leading-[1.3] text-balance text-white sm:text-[1.85rem]">
+        <Reveal delay={0.1} className="mt-16 flex flex-col items-center text-center lg:mt-20">
+          <p className="max-w-[40rem] font-display text-[1.35rem] leading-[1.35] text-balance text-white sm:text-[1.6rem]">
             {pricing.emphasis}
           </p>
           <p className="mt-4 max-w-[36rem] text-body-sm text-brand-200/85">{pricing.emphasisNote}</p>

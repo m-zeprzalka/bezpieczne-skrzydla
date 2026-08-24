@@ -76,7 +76,7 @@ export function SiteHeader() {
         className={cn(
           CONTAINER,
           "flex items-center justify-between gap-6 transition-[height] duration-500 ease-out-expo",
-          scrolled ? "h-16" : "h-20",
+          scrolled ? "h-16" : "h-[4.5rem]",
         )}
       >
         <Link href="/" aria-label={`${site.name} — strona główna`} className="focus-ring shrink-0 rounded-full">

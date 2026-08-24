@@ -11,10 +11,10 @@ export default function NotFound() {
   return (
     <section className="relative overflow-hidden bg-white">
       <div aria-hidden className="bg-aurora absolute inset-x-0 top-0 h-[520px] opacity-50" />
-      <WingArcs className="absolute -bottom-40 left-1/2 w-[900px] max-w-none -translate-x-1/2 opacity-30" count={10} />
+      <WingArcs className="absolute -bottom-40 left-1/2 w-[900px] max-w-none -translate-x-1/2 opacity-20" count={10} />
       <Container className="relative flex min-h-[70vh] flex-col items-center justify-center py-24 text-center">
         <Reveal>
-          <p className="t-outline text-[6rem] leading-none select-none sm:text-[8rem]" aria-hidden>
+          <p className="t-outline text-[5rem] leading-none select-none sm:text-[6.5rem]" aria-hidden>
             404
           </p>
           <p className="t-label mt-2 text-brand-600">Nie ma takiej strony</p>

@@ -9,10 +9,8 @@ import { approach, model4r } from "@/content/model-4r";
 export function ModelTeaser() {
   return (
     <Section id="model-4r" tone="tint" className="overflow-hidden">
-      <div aria-hidden className="bg-grid mask-radial absolute inset-0 -z-0 opacity-40" />
-
       <Container className="relative">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-12">
           <div className="md:col-span-5">
             <SectionHead
               index="01"
@@ -23,12 +21,12 @@ export function ModelTeaser() {
             />
 
             {/* sygnatura: cztery R i fundament pod nimi */}
-            <Reveal delay={0.2} className="mt-9 inline-flex flex-col gap-2.5">
+            <Reveal delay={0.2} className="mt-10 inline-flex flex-col gap-2.5">
               <span className="flex items-center gap-2.5">
                 {model4r.steps.map((step, i) => (
                   <span key={step.key} className="flex items-center gap-2.5">
                     <span
-                      className="grid size-10 place-items-center rounded-full border border-brand-300 bg-white font-display text-[1rem] text-brand-700"
+                      className="grid size-9 place-items-center rounded-full border border-brand-300 bg-white font-display text-[0.95rem] text-brand-700"
                       title={step.title}
                     >
                       R
@@ -46,25 +44,25 @@ export function ModelTeaser() {
             </Reveal>
           </div>
 
-          <div className="flex flex-col gap-5 md:col-span-7 md:pt-20 lg:pl-14">
+          <div className="flex flex-col gap-6 md:col-span-7 md:pt-12 lg:pl-8">
             {approach.paragraphs.map((paragraph, i) => (
-              <Reveal key={paragraph} delay={0.1 + i * 0.05} as="p" className="text-lead max-w-[36rem] text-pretty text-ink-muted">
+              <Reveal key={paragraph} delay={0.1 + i * 0.05} as="p" className="max-w-[34rem] text-body text-pretty text-ink-muted">
                 {paragraph}
               </Reveal>
             ))}
             <Reveal
               delay={0.2}
               as="p"
-              className="max-w-[36rem] border-l-2 border-foundation-300 pl-5 text-body text-pretty text-brand-900/90"
+              className="max-w-[34rem] border-l-2 border-foundation-300 pl-5 text-small text-pretty text-brand-900/90"
             >
               {approach.foundationIntro}
             </Reveal>
           </div>
         </div>
 
-        <ModelDiagram compact className="mt-16 lg:mt-20" />
+        <ModelDiagram compact className="mt-20 lg:mt-24" />
 
-        <Reveal className="mt-10 flex justify-center">
+        <Reveal className="mt-12 flex justify-center">
           <ArrowLink href="/model-4r">Poznaj cały Model 4R</ArrowLink>
         </Reveal>
       </Container>
